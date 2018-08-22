@@ -1,0 +1,11 @@
+<h1>Sign into your guest account</h1>
+
+<%= form_tag ("/signin") do %>
+  <%= label_tag('email', "Email address:") %>
+  <%= text_field_tag('email') %>
+  <br>
+  <%= label_tag('password', "Password:") %>
+  <%= text_field_tag('password') %>
+  <br>
+  <%= submit_tag "Sign In" %>
+<% end %>
