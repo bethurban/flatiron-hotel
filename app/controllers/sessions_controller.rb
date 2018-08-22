@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    #Signing in creates a new user with blank fields and directs to the new user's show page
     @guest = Guest.find_by(email: params[:guest][:email])
     if @guest && @guest.authenticate(params[:guest][:password])
       session[:user_id] = @guest.id
