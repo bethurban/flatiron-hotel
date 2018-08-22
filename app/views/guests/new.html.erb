@@ -1,10 +1,10 @@
 <h1> Create a guest account </h1>
 
 <%= form_for(@guest) do |f| %>
-  <%= f.text_field :first_name, placeholder: "First name" %><br>
-  <%= f.text_field :last_name, placeholder: "Last name" %><br>
-  <%= f.text_field :email, placeholder: "Email address" %><br>
-  <%= f.text_field :phone_number, placeholder: "Phone number - XXX-XXX-XXXX" %><br>
-  <%= f.text_field :password, placeholder: "Enter password" %><br>
-  <%= f.submit "Create User" %>
+  First name: <%= f.text_field :first_name %><br>
+  Last name: <%= f.text_field :last_name %><br>
+  Email address: <%= f.text_field :email %><br>
+  Phone number - <i>format: XXX-XXX-XXXX</i>: <%= f.text_field :phone_number %><br>
+  Password: <%= f.text_field :password %><br>
+  <%= f.submit "Create Guest Account" %>
 <% end %>
