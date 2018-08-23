@@ -3,7 +3,7 @@
 
   <h2>This week's bookings</h2>
 
-  <%= link_to "Add a room" %>
+  <%= link_to "Add a room", new_room_path %>
 
 <% else %>
   <h1>Welcome, <%= @user.first_name %> <%= @user.last_name %></h1>
