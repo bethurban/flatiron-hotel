@@ -6,10 +6,6 @@ Next:
 
 1. Hotel admin create account - can only sign up with @flatironhotel.com email
 
-3. Hotel admin create rooms
-
-4. Hotel admin gets list of rooms after logging in
-
 5. Guest gets link to book a room after logging in
 
 6. Guest then chooses date range and group size and gets list of available rooms with price
