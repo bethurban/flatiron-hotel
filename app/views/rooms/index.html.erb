@@ -1,0 +1,12 @@
+<h1>Flatiron Hotel rooms</h1>
+
+<% @rooms.each do |room| %>
+  <h3>Room <%= room.room_number %></h3>
+    <ul>
+      <li>Cost: $<%= room.cost %> per night</li>
+      <li>Capacity: <%= room.capacity %> guests</li>
+    </ul>
+  <br>
+<% end %>
+
+<%= link_to "Back to homepage", user_path(@user) %>

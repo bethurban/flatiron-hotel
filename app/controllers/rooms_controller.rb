@@ -13,8 +13,12 @@ class RoomsController < ApplicationController
     end
   end
 
+  def index
+    @rooms = Room.all
+    @user = User.find_by_id(session[:user_id])
+  end
+
   def show
-    binding.pry
     @room = Room.find_by_id(params[:id])
     @user = User.find_by_id(session[:user_id])
   end
