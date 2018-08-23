@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy'
   resources :bookings
   resources :rooms
-  resources :guests
+  resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
