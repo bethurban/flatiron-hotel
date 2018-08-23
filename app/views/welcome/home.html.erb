@@ -1,6 +1,7 @@
 <h1>Welcome to the Flatiron Hotel</h1>
 
 <h2><%= link_to "If you already have a guest account, please log in to reserve a room", signin_path %></h2>
-<h2><%= link_to "Create a guest account if you're new to the hotel", new_user_path %></h2>
 
-<h3>Hotel administrators, please log in to manage bookings</h2>
+<h3><%= link_to "Create an account if you're new to the hotel", new_user_path %></h3>
+
+<h4><%= link_to "Hotel managers, log in to manage bookings", signin_path %></h2>
