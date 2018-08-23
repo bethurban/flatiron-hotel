@@ -2,6 +2,7 @@ class GuestsController < ApplicationController
 
   def new
     @guest = Guest.new
+    @admin = Guest.new
   end
 
   def create
