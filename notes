@@ -1,0 +1,27 @@
+Create guest account is working
+
+Guest signin is working
+
+Next:
+
+1. Hotel admin create account - can only sign up with @flatironhotel.com email
+
+2. Hotel admin login
+
+3. Hotel admin create rooms
+
+4. Hotel admin gets list of rooms after logging in
+
+5. Guest gets link to book a room after logging in
+
+6. Guest then chooses date range and group size and gets list of available rooms with price
+
+7? Guest can click on any available room to see more details
+
+8. Guest can book room from index view or from detail view
+
+9. After booking, taken back to guest's home screen to see confirmed booking section with booking listed
+
+10. Can edit or cancel booking from home screen
+
+11. Hotel admins can see and sort bookings, can edit or cancel bookings.
