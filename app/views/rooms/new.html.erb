@@ -1,1 +1,10 @@
-New room form
+<h1> Create a new hotel room </h1>
+
+<p>
+<%= form_for(@room) do |f| %>
+  Room number: <%= f.text_field :room_number %><br>
+  Nightly cost: $<%= f.text_field :cost %><br>
+  Guest capacity: <%= f.text_field :capacity %><br>
+  <%= f.submit "Create hotel room" %>
+<% end %>
+</p>
