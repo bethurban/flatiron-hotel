@@ -5,7 +5,7 @@ class RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.new
+    @room = Room.new(room_params)
     if @room.save
       redirect_to room_path(@room)
     else
@@ -14,12 +14,12 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find_by(params[:id])
+    @room = Room.find_by_id(params[:id])
   end
 
   private
 
-  def user_params
+  def room_params
     params.require(:room).permit(:room_number, :cost, :capacity)
   end
 
