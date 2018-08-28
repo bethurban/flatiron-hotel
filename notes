@@ -8,11 +8,21 @@ User validations are set up and error messages are working
 
 Next:
 
-5. Guest gets link to book a room after logging in
- - links to bookings#new
- - User enters dates using form
- - Takes to new page that shows rooms available on those dates
- - chooses room and creates booking
+1. Guest chooses checkin/checkout and party size from users#show page.
+  - Then taken to bookings#new, where guest can see list of rooms available that can accommodate party size
+    - Rooms have bookings
+      - Each booking has a checkin date and checkout date
+      - Better for each booking to have a date range? And new booking to convert checkin/checkout to range?
+        - Then can do:
+        Room.all.each do |room|
+          if !room.range.overlaps?(new_booking_range)
+              Room <%= room.room_number %>
+              Sleeps <%= room.capacity %> guests
+              $<%= room.cost %> per night
+          end  
+        end
+
+
 
 6. Guest then chooses date range and group size and gets list of available rooms with price
 
