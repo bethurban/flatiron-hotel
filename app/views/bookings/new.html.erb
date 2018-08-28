@@ -2,10 +2,29 @@
 
 <% date_array = @booking.date_range.to_a %>
 
+<p>
 Booking dates: <%= date_array.first %> to <%= date_array.last %><br>
 Number of guests: <%= @booking.group_size %>
+</p>
+
 <p>
 <% @rooms.each do |room| %>
-  Room <%= room.room_number %><br>
+  <% if room.bookings %>
+    <% room.bookings.each do |booking| %>
+      <% if !booking.date_range.overlaps?(@booking.date_range) %>
+          <h3>Room <%= room.room_number %></h3>
+          <ul>
+            <li>Sleeps <%= room.capacity %> guests</li>
+            <li>$<%= room.cost %> per night</li>
+          </ul>
+      <% end %>
+    <% end %>
+  <% elsif room.bookings == [] %>
+    <h3>Room <%= room.room_number %></h3>
+    <ul>
+      <li>Sleeps <%= room.capacity %> guests</li>
+      <li>$<%= room.cost %> per night</li>
+    </ul>
+  <% end %>
 <% end %>
 </p>
