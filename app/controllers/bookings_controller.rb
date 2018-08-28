@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     binding.pry
     if @booking.save
+      #Why doesn't a booking save???
       @rooms = Room.all
       redirect_to booking_path(@booking)
     else
