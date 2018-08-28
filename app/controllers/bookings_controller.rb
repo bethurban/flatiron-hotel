@@ -5,9 +5,8 @@ class BookingsController < ApplicationController
     checkin = params[:booking][:checkin]
     checkout = params[:booking][:checkout]
     checkin_date = Date.new checkin["year"].to_i, checkin["month"].to_i, checkin["day"].to_i
-    @booking.checkin = checkin_date
     checkout_date = Date.new checkout["year"].to_i, checkout["month"].to_i, checkout["day"].to_i
-    @booking.checkout = checkout_date
+    @booking.date_range = Range.new(checkin_date, checkout_date)
     @booking.group_size = params[:booking][:group_size]
 
     @rooms = Room.all
@@ -25,7 +24,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :room_id, :checkin, :checkout, :group_size)
+    params.require(:booking).permit(:user_id, :room_id, :date_range, :group_size)
   end
 
 end

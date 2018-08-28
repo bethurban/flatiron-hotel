@@ -1,7 +1,8 @@
 <h1> Make a reservation </h1>
 
-Check-in date: <%= @booking.checkin %><br>
-Check-out date: <%= @booking.checkout %><br>
+<% date_array = @booking.date_range.to_a %>
+
+Booking dates: <%= date_array.first %> to <%= date_array.last %><br>
 Number of guests: <%= @booking.group_size %>
 <p>
 <% @rooms.each do |room| %>
