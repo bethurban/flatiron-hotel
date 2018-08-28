@@ -10,6 +10,7 @@
 <% else %>
   <h1>Welcome, <%= @user.first_name %> <%= @user.last_name %></h1>
 <% end %>
+<%= link_to "Reserve a room", new_booking_path %>
 <br>
 <br>
 <%= link_to "Log out", signout_path %>
