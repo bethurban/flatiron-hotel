@@ -1,8 +1,16 @@
 class BookingsController < ApplicationController
 
   def new
-    binding.pry
     @booking = Booking.new
+    checkin = params[:booking][:checkin]
+    checkout = params[:booking][:checkout]
+    checkin_date = Date.new checkin["year"].to_i, checkin["month"].to_i, checkin["day"].to_i
+    @booking.checkin = checkin_date
+    checkout_date = Date.new checkout["year"].to_i, checkout["month"].to_i, checkout["day"].to_i
+    @booking.checkout = checkout_date
+    @booking.group_size = params[:booking][:group_size]
+
+    @rooms = Room.all
   end
 
   def create

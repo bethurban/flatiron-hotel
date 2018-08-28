@@ -1,10 +1,10 @@
 <h1> Make a reservation </h1>
 
+Check-in date: <%= @booking.checkin %><br>
+Check-out date: <%= @booking.checkout %><br>
+Number of guests: <%= @booking.group_size %>
 <p>
-<%= form_for(@booking) do |f| %>
-  Check-in date: <%= f.date_select :checkin, start_year: Date.today.year %><br>
-  Check-out date: <%= f.date_select :checkout, start_year: Date.today.year %><br>
-  Number of guests: <%= f.text_field :group_size %><br>
-  <%= f.submit "See available rooms" %>
+<% @rooms.each do |room| %>
+  Room <%= room.room_number %><br>
 <% end %>
 </p>
