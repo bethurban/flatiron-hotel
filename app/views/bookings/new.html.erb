@@ -9,7 +9,7 @@ Number of guests: <%= @booking.group_size %>
 
 <p>
 <% @rooms.each do |room| %>
-  <% if room.bookings %>
+  <% if room.bookings != [] %>
     <% room.bookings.each do |booking| %>
       <% if !booking.date_range.overlaps?(@booking.date_range) %>
           <h3>Room <%= room.room_number %></h3>
