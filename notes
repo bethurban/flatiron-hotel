@@ -2,11 +2,17 @@ Create guest account is working
 
 Guest signin is working
 
+Create admin account is working - must have flatironhotel.com email
+
+User validations are set up and error messages are working
+
 Next:
 
-1. Hotel admin create account - can only sign up with @flatironhotel.com email
-
 5. Guest gets link to book a room after logging in
+ - links to bookings#new
+ - User enters dates using form
+ - Takes to new page that shows rooms available on those dates
+ - chooses room and creates booking
 
 6. Guest then chooses date range and group size and gets list of available rooms with price
 
