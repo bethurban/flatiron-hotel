@@ -14,6 +14,13 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    binding.pry
+    array = @booking.date_range.split("..")
+    date_array1 = array.first.split("-")
+    date1 = Date.new date_array1[0], date_array1[1], date_array1[2]
+    date_array2 = array.last.split("-")
+    date2 = Date.new date_array2[0], date_array2[1], date_array2[2]
+    @booking.date_range = Range.new(date1, date2)
     if @booking.save
       redirect_to booking_path(@booking)
     else

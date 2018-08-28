@@ -8,23 +8,30 @@ Number of guests: <%= @booking.group_size %>
 </p>
 
 <p>
-<% @rooms.each do |room| %>
-  <% if room.bookings != [] %>
-    <% room.bookings.each do |booking| %>
-      <% if !booking.date_range.overlaps?(@booking.date_range) %>
-          <h3>Room <%= room.room_number %></h3>
-          <ul>
-            <li>Sleeps <%= room.capacity %> guests</li>
-            <li>$<%= room.cost %> per night</li>
-          </ul>
+<%= form_tag bookings_path do %>
+  <% @rooms.each do |room| %>
+    <% if room.bookings != [] %>
+      <% room.bookings.each do |booking| %>
+        <% if !booking.date_range.overlaps?(@booking.date_range) %>
+            <h3>Room <%= room.room_number %> <%= check_box_tag :'booking[room_id]', room.id %></h3>
+            <ul>
+              <li>Sleeps <%= room.capacity %> guests</li>
+              <li>$<%= room.cost %> per night</li>
+            </ul>
+        <% end %>
       <% end %>
+    <% elsif room.bookings == [] %>
+      <h3>Room <%= room.room_number %> <%= check_box_tag :'booking[room_id]', room.id %></h3>
+      <ul>
+        <li>Sleeps <%= room.capacity %> guests</li>
+        <li>$<%= room.cost %> per night</li>
+      </ul>
     <% end %>
-  <% elsif room.bookings == [] %>
-    <h3>Room <%= room.room_number %></h3>
-    <ul>
-      <li>Sleeps <%= room.capacity %> guests</li>
-      <li>$<%= room.cost %> per night</li>
-    </ul>
   <% end %>
+<%= hidden_field_tag :'booking[user_id]', session[:user_id] %>
+<%= hidden_field_tag :'booking[group_size]', @booking.group_size %>
+<%= hidden_field_tag :'booking[date_range]', @booking.date_range %>
+<%= submit_tag "Book this room" %>
 <% end %>
+
 </p>
