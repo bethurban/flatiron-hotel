@@ -5,11 +5,20 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
+    binding.pry
     if @booking.save
+      @rooms = Room.all
       redirect_to booking_path(@booking)
     else
-      redirect to new_booking_path
+      redirect_to new_booking_path
     end
   end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:checkin, :checkout, :group_size)
+  end
+
 end
