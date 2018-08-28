@@ -20,6 +20,8 @@ class BookingsController < ApplicationController
     date_array2 = array.last.split("-")
     date2 = Date.new date_array2[0].to_i, date_array2[1].to_i, date_array2[2].to_i
     @booking.date_range = Range.new(date1, date2)
+    #can't save date_range as a Range object - may have to instead capture the full range
+    #as a string here, then convert that to a Range object in the show page
     if @booking.save
       redirect_to booking_path(@booking)
     else
