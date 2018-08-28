@@ -1,5 +1,17 @@
 <h1> Create a hotel account </h1>
 
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@user.errors.count, "error") %> prohibited this account from being created:</h3>
+
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <p>
 <%= form_for(@user) do |f| %>
   First name: <%= f.text_field :first_name %><br>
@@ -7,6 +19,7 @@
   Email address: <%= f.text_field :email %><br>
   Phone number - <i>format: XXX-XXX-XXXX</i>: <%= f.text_field :phone_number %><br>
   Password: <%= f.text_field :password %><br>
+  Enter password again: <%= f.text_field :password_confirmation %><br>
   <i>Check box if you are a hotel manager (must have @flatironhotel.com email):</i>
   <%= f.check_box :admin %><br>
   <%= f.submit "Create hotel account" %>
