@@ -1,19 +1,16 @@
 class BookingsController < ApplicationController
 
   def new
+    binding.pry
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user_id = session[:user_id]
-    @booking.room_id = nil
-    binding.pry
     if @booking.save
-       @rooms = Room.all
-       redirect_to booking_path(@booking)
+      redirect_to booking_path(@booking)
     else
-       redirect_to new_booking_path
+      redirect_to new_booking_path
     end
   end
 
