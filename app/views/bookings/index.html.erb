@@ -1,0 +1,8 @@
+<h1>Reservations</h1>
+
+<% @bookings.each do |booking| %>
+  <% room = Room.find_by_id(booking.room_id) %>
+  <ul>
+    <li><%= link_to "Room #{room.room_number}, check in: #{booking.checkin}, check out: #{booking.checkout}", booking_path(booking) %></li>
+  </ul>
+<% end %>

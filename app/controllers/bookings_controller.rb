@@ -26,6 +26,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  def index
+    if session[:user_id]
+      @bookings = Booking.order(:checkin)
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def booking_params

@@ -18,9 +18,6 @@ class UsersController < ApplicationController
   def show
     if session[:user_id]
       @user = User.find_by_id(session[:user_id])
-      if @user.admin
-        @bookings = Booking.order(:checkin)
-      end
     else
       redirect_to root_path
     end
