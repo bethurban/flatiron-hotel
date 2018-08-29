@@ -1,17 +1,15 @@
 Next:
 
-1. Hotel admins can sort visible bookings by date or by room.
+1. Hotel admins can book a room for a guest.
 
-2. Hotel admins can view available rooms by date and group size.
+2. Fill out booking show page - guest name, format checkin/checkout dates.
 
-3. Hotel admins can book a room for a guest - need to divide user#show page completely - one half for admins, one half for guests.
+3. Format checkin/checkout dates on existing bookings on user show page to be more readable.
 
-4. Fill out booking show page - guest name, format checkin/checkout dates.
+4. Add link to see all rooms on user show page.
 
-5. Format checkin/checkout dates on existing bookings on user show page to be more readable.
+5. Fill out room show pages with details, photos(?)
 
-6. Add link to see all rooms on user show page.
+6. Nested routes
 
-7. Fill out room show pages with details, photos(?)
-
-8. Users able to see room show pages from available page, then go back to available page with booking details intact?
+7. OmniAuth login
