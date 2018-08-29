@@ -1,10 +1,10 @@
 Next:
 
-1. Hotel admins see all bookings on their home page sorted by date - link off to booking show page.
+1. Hotel admins can sort visible bookings by date or by room.
 
-2. Hotel admins can sort visible bookings by date or by room.
+2. Hotel admins can view available rooms by date and group size.
 
-3. Hotel admins can view available rooms by date and group size.
+3. Hotel admins can book a room for a guest - need to divide user#show page completely - one half for admins, one half for guests.
 
 4. Fill out booking show page - guest name, format checkin/checkout dates.
 
