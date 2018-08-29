@@ -9,29 +9,11 @@ User validations are set up and error messages are working
 Next:
 
 1. Guest chooses checkin/checkout and party size from users#show page.
-  - Then taken to bookings#new, where guest can see list of rooms available that can accommodate party size
-    - Rooms have bookings
-      - Each booking has a checkin date and checkout date
-      - Better for each booking to have a date range? And new booking to convert checkin/checkout to range?
-        - Then can do:
-        Room.all.each do |room|
-          if !room.range.overlaps?(new_booking_range)
-              Room <%= room.room_number %>
-              Sleeps <%= room.capacity %> guests
-              $<%= room.cost %> per night
-          end  
-        end
 
+2. Then taken to bookings#new, where guest can see list of rooms available that can accommodate party size. Link back to home screen/logout.
 
+3. After booking, taken to bookings#show with all booking and room details. Link to go back to home screen/logout.
 
-6. Guest then chooses date range and group size and gets list of available rooms with price
+4. Home screen shows list of all current bookings with link to show pages.
 
-7? Guest can click on any available room to see more details
-
-8. Guest can book room from index view or from detail view
-
-9. After booking, taken back to guest's home screen to see confirmed booking section with booking listed
-
-10. Can edit or cancel booking from home screen
-
-11. Hotel admins can see and sort bookings, can edit or cancel bookings.
+5. Hotel admins see all bookings on their home page. Can sort by dates/rooms... Can see what rooms are open on dates...

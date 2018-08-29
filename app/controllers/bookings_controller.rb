@@ -5,7 +5,6 @@ class BookingsController < ApplicationController
     @checkout = Date.new params[:booking][:checkout][:year].to_i, params[:booking][:checkout][:month].to_i, params[:booking][:checkout][:day].to_i
     @date_range = Range.new(@checkin, @checkout)
     @group_size = params[:booking][:group_size]
-
     @rooms = Room.all
   end
 
