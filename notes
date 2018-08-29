@@ -1,19 +1,17 @@
-Create guest account is working
-
-Guest signin is working
-
-Create admin account is working - must have flatironhotel.com email
-
-User validations are set up and error messages are working
-
 Next:
 
-1. Guest chooses checkin/checkout and party size from users#show page.
+1. Hotel admins see all bookings on their home page sorted by date - link off to booking show page.
 
-2. Then taken to bookings#new, where guest can see list of rooms available that can accommodate party size. Link back to home screen/logout.
+2. Hotel admins can sort visible bookings by date or by room.
 
-3. After booking, taken to bookings#show with all booking and room details. Link to go back to home screen/logout.
+3. Hotel admins can view available rooms by date and group size.
 
-4. Home screen shows list of all current bookings with link to show pages.
+4. Fill out booking show page - guest name, format checkin/checkout dates.
 
-5. Hotel admins see all bookings on their home page. Can sort by dates/rooms... Can see what rooms are open on dates...
+5. Format checkin/checkout dates on existing bookings on user show page to be more readable.
+
+6. Add link to see all rooms on user show page.
+
+7. Fill out room show pages with details, photos(?)
+
+8. Users able to see room show pages from available page, then go back to available page with booking details intact?
