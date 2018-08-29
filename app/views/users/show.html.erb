@@ -13,19 +13,38 @@
 
 <section>
 
-<h2>Reserve a room</h2>
+  <h2>Reserve a room</h2>
 
-<%= form_tag available_path do %>
-  <label>Check-in date: </label>
-  <%= select_date Date.today, prefix: :'booking[checkin]' %><br>
-  <label>Check-out date: </label>
-  <%= select_date Date.today, prefix: :'booking[checkout]' %><br>
-  <label>Number of guests: </label>
-  <%= text_field_tag :'booking[group_size]' %><br>
-  <%= submit_tag "See available rooms" %>
-<% end %>
+  <%= form_tag available_path do %>
+    <label>Check-in date: </label>
+    <%= select_date Date.today, prefix: :'booking[checkin]' %><br>
+    <label>Check-out date: </label>
+    <%= select_date Date.today, prefix: :'booking[checkout]' %><br>
+    <label>Number of guests: </label>
+    <%= text_field_tag :'booking[group_size]' %><br>
+    <%= submit_tag "See available rooms" %>
+  <% end %>
+
 </section>
-<br>
+
 <section>
-<%= link_to "Log out", signout_path %>
+
+  <% if @user.bookings != [] %>
+    <h2>Existing reservations</h2>
+    <% @user.bookings.each do |booking| %>
+      <% room = Room.find_by_id(booking.room_id) %>
+      <%= link_to "Check in: #{booking.checkin}, check out: #{booking.checkout}, #{booking.group_size} guests", booking_path(booking) %><br>
+      <ul>
+        <li>Room <%= room.room_number %>, sleeps <%= room.capacity %> guests</li>
+        <li>$<%= room.cost %> per night</li>
+      </ul>
+    <% end %>
+  <% end %>
+
+</section>
+
+<br>
+
+<section>
+  <%= link_to "Log out", signout_path %>
 </section>
