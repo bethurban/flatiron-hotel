@@ -28,7 +28,8 @@ Number of guests: <%= @group_size %>
   <% end %>
 <%= hidden_field_tag :'booking[user_id]', session[:user_id] %>
 <%= hidden_field_tag :'booking[group_size]', @group_size %>
-<%= hidden_field_tag :'booking[date_range]', @date_range %>
+<%= hidden_field_tag :'booking[checkin]', @checkin %>
+<%= hidden_field_tag :'booking[checkout]', @checkout %>
 <%= submit_tag "Book this room" %>
 <% end %>
 

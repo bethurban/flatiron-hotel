@@ -12,13 +12,6 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    array = booking_params[:date_range].split("..")
-
-    date1 = array[0].to_date
-    date2 = array[1].to_date
-    @booking.date_range = Range.new(date1, date2)
-    #can't save date_range as a Range object - may have to instead capture the full range
-    #as a string here, then convert that to a Range object in the show page
     if @booking.save
       redirect_to booking_path(@booking)
     else
@@ -29,7 +22,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :room_id, :date_range, :group_size)
+    params.require(:booking).permit(:user_id, :room_id, :checkin, :checkout, :group_size)
   end
 
 end
