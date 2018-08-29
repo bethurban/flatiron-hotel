@@ -1,13 +1,11 @@
 class BookingsController < ApplicationController
 
   def new
-    @booking = Booking.new
-    checkin = params[:booking][:checkin]
-    checkout = params[:booking][:checkout]
-    checkin_date = Date.new checkin["year"].to_i, checkin["month"].to_i, checkin["day"].to_i
-    checkout_date = Date.new checkout["year"].to_i, checkout["month"].to_i, checkout["day"].to_i
-    @booking.date_range = Range.new(checkin_date, checkout_date)
-    @booking.group_size = params[:booking][:group_size]
+    binding.pry
+    @checkin = params[:booking][:checkin].to_s.to_date
+    @checkout = params[:booking][:checkout].to_s.to_date
+    @date_range = Range.new(@checkin, @checkout)
+    @group_size = params[:booking][:group_size]
 
     @rooms = Room.all
   end
@@ -15,10 +13,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     array = booking_params[:date_range].split("..")
-    date_array1 = array.first.split("-")
-    date1 = Date.new date_array1[0].to_i, date_array1[1].to_i, date_array1[2].to_i
-    date_array2 = array.last.split("-")
-    date2 = Date.new date_array2[0].to_i, date_array2[1].to_i, date_array2[2].to_i
+
+    date1 = array[0].to_date
+    date2 = array[1].to_date
     @booking.date_range = Range.new(date1, date2)
     #can't save date_range as a Range object - may have to instead capture the full range
     #as a string here, then convert that to a Range object in the show page

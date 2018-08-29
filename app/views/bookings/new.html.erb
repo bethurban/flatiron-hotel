@@ -1,10 +1,8 @@
 <h1> Make a reservation </h1>
 
-<% date_array = @booking.date_range.to_a %>
-
 <p>
-Booking dates: <%= date_array.first %> to <%= date_array.last %><br>
-Number of guests: <%= @booking.group_size %>
+Booking dates: <%= @checkin %> to <%= @checkout %><br>
+Number of guests: <%= @group_size %>
 </p>
 
 <p>
@@ -12,7 +10,7 @@ Number of guests: <%= @booking.group_size %>
   <% @rooms.each do |room| %>
     <% if room.bookings != [] %>
       <% room.bookings.each do |booking| %>
-        <% if !booking.date_range.overlaps?(@booking.date_range) %>
+        <% if !booking.date_range.overlaps?(@date_range) %>
             <h3>Room <%= room.room_number %> <%= check_box_tag :'booking[room_id]', room.id %></h3>
             <ul>
               <li>Sleeps <%= room.capacity %> guests</li>
@@ -29,8 +27,8 @@ Number of guests: <%= @booking.group_size %>
     <% end %>
   <% end %>
 <%= hidden_field_tag :'booking[user_id]', session[:user_id] %>
-<%= hidden_field_tag :'booking[group_size]', @booking.group_size %>
-<%= hidden_field_tag :'booking[date_range]', @booking.date_range %>
+<%= hidden_field_tag :'booking[group_size]', @group_size %>
+<%= hidden_field_tag :'booking[date_range]', @date_range %>
 <%= submit_tag "Book this room" %>
 <% end %>
 
