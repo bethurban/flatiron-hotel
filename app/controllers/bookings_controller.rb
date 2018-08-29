@@ -1,9 +1,8 @@
 class BookingsController < ApplicationController
 
   def new
-    binding.pry
-    @checkin = params[:booking][:checkin].to_s.to_date
-    @checkout = params[:booking][:checkout].to_s.to_date
+    @checkin = Date.new params[:booking][:checkin][:year].to_i, params[:booking][:checkin][:month].to_i, params[:booking][:checkin][:day].to_i
+    @checkout = Date.new params[:booking][:checkout][:year].to_i, params[:booking][:checkout][:month].to_i, params[:booking][:checkout][:day].to_i
     @date_range = Range.new(@checkin, @checkout)
     @group_size = params[:booking][:group_size]
 
