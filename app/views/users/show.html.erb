@@ -1,7 +1,16 @@
 <% if @user.admin %>
   <h1>Welcome, manager <%= @user.first_name %> <%= @user.last_name %></h1>
 
-  <%= link_to "Existing reservations", bookings_path %>
+  <h2><%= link_to "All existing reservations", bookings_path %><h2>
+
+  <h2>Sort existing reservations by date range</h2>
+  <%= form_tag existing_bookings_path do %>
+    <label>Start date: </label>
+    <%= select_date Date.today, prefix: :'start_date' %><br>
+    <label>End date: </label>
+    <%= select_date Date.today, prefix: :'end_date' %><br>
+    <%= submit_tag "See all reservations between these dates" %>
+  <% end %>
 
   <section>
 

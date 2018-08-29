@@ -27,6 +27,7 @@ class BookingsController < ApplicationController
   end
 
   def index
+    binding.pry
     if session[:user_id]
       @bookings = Booking.order(:checkin)
     else
