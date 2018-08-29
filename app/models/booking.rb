@@ -11,7 +11,8 @@ class Booking < ApplicationRecord
   def self.bookings_between(start_date, end_date)
     booked = []
     range = Range.new(start_date, end_date)
-    Booking.all.each do |booking|
+    bookings = Booking.order(:checkin)
+    bookings.each do |booking|
       if booking.date_range.overlaps?(range)
         booked << booking
       end

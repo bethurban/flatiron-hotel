@@ -1,4 +1,8 @@
-<h1>Reservations</h1>
+<% if @start && @ending %>
+  <h1>Reservations between <%= @start %> and <%= @ending %></h1>
+<% else %>
+  <h1>Reservations</h1>
+<% end %>
 
 <% @bookings.each do |booking| %>
   <% room = Room.find_by_id(booking.room_id) %>
