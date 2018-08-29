@@ -1,7 +1,16 @@
 <% if @user.admin %>
   <h1>Welcome, manager <%= @user.first_name %> <%= @user.last_name %></h1>
 
-  <h2>This week's bookings</h2>
+  <% if @bookings != [] %>
+    <h2>All reservations</h2>
+      <% @bookings.each do |booking| %>
+        <% room = Room.find_by_id(booking.room_id ) %>
+        <ul>
+          <li><%= link_to "Room #{room.room_number}, check in: #{booking.checkin}, check out: #{booking.checkout}", booking_path(booking) %></li>
+        </ul>
+      <% end %>
+  <% end %>
+
 
   <%= link_to "See all rooms", rooms_path %>
   <br>
