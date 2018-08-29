@@ -18,6 +18,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  def show
+    if session[:user_id]
+      @booking = Booking.find_by_id(params[:id])
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def booking_params
