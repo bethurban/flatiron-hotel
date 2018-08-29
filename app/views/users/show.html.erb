@@ -11,6 +11,8 @@
   <h1>Welcome, <%= @user.first_name %> <%= @user.last_name %></h1>
 <% end %>
 
+<section>
+
 <h2>Reserve a room</h2>
 
 <%= form_tag available_path do %>
@@ -22,7 +24,8 @@
   <%= text_field_tag :'booking[group_size]' %><br>
   <%= submit_tag "See available rooms" %>
 <% end %>
-
+</section>
 <br>
-<br>
+<section>
 <%= link_to "Log out", signout_path %>
+</section>

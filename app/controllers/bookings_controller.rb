@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
     @date_range = Range.new(@checkin, @checkout)
     @group_size = params[:booking][:group_size]
     @rooms = Room.all
+    @user = User.find_by_id(session[:user_id])
   end
 
   def create

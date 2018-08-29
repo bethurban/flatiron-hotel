@@ -1,11 +1,11 @@
 <h1> Make a reservation </h1>
 
-<p>
+<section>
 Booking dates: <%= @checkin %> to <%= @checkout %><br>
 Number of guests: <%= @group_size %>
-</p>
+</section>
 
-<p>
+<section>
 <%= form_tag bookings_path do %>
   <% @rooms.each do |room| %>
     <% if room.bookings != [] %>
@@ -32,5 +32,11 @@ Number of guests: <%= @group_size %>
 <%= hidden_field_tag :'booking[checkout]', @checkout %>
 <%= submit_tag "Book this room" %>
 <% end %>
+</section>
 
-</p>
+<br>
+
+<section>
+<%= link_to "Back to home screen", user_path(@user)%><br>
+<%= link_to "Log out", signout_path %>
+</section>
