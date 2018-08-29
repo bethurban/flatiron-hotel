@@ -12,10 +12,19 @@
     <%= submit_tag "See all reservations between these dates" %>
   <% end %>
 
-  <section>
+  <h2>See available rooms by date range and party size</h2>
+  <%= form_tag available_rooms_path do %>
+    <label>Start date: </label>
+    <%= select_date Date.today, prefix: :'start_date' %><br>
+    <label>End date: </label>
+    <%= select_date Date.today, prefix: :'end_date' %><br>
+    <label>Number of guests: </label>
+    <%= text_field_tag :'guests' %>
+    <%= submit_tag "See available rooms" %>
+  <% end %>
 
-    <h2>Reserve a room for a guest</h2>
 
+  <h2>Reserve a room for a guest</h2>
     <%= form_tag available_path do %>
       <label>Check-in date: </label>
       <%= select_date Date.today, prefix: :'booking[checkin]' %><br>
@@ -26,10 +35,8 @@
       <%= submit_tag "See available rooms" %>
     <% end %>
 
-  </section>
 
   <br>
-
   <%= link_to "See all rooms", rooms_path %>
   <br>
   <%= link_to "Add a room", new_room_path %>

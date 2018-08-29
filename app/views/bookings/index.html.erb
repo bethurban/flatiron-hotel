@@ -10,3 +10,7 @@
     <li><%= link_to "Room #{room.room_number}, check in: #{booking.checkin}, check out: #{booking.checkout}", booking_path(booking) %></li>
   </ul>
 <% end %>
+
+<br>
+<br>
+<%= link_to "Back to homepage", user_path(@user) %>

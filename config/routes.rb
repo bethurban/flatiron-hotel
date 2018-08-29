@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/signout' => 'sessions#destroy'
   post '/available' => 'bookings#new'
   post '/existing_bookings' => 'bookings#index'
+  post '/available_rooms' => 'rooms#index'
   resources :bookings
   resources :rooms
   resources :users
