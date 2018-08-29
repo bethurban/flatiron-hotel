@@ -20,17 +20,4 @@ class Booking < ApplicationRecord
     booked
   end
 
-  def self.available_rooms(start_date, end_date, group_size)
-    available = []
-    range = Range.new(start_date, end_date)
-    Room.all.each do |room|
-      room.bookings.each do |booking|
-        if !booking.date_range.overlaps?(range) && room.capacity >= group_size && !available.include?(room)
-          available << room
-        end
-      end
-    end
-    available
-  end
-
 end
