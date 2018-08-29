@@ -10,7 +10,7 @@ Number of guests: <%= @group_size %>
   <% @rooms.each do |room| %>
     <% if room.bookings != [] %>
       <% room.bookings.each do |booking| %>
-        <% if !booking.date_range.overlaps?(@date_range) %>
+        <% if !booking.date_range.overlaps?(@date_range) && room.capacity >= @group_size.to_i %>
             <h3>Room <%= room.room_number %> <%= check_box_tag :'booking[room_id]', room.id %></h3>
             <ul>
               <li>Sleeps <%= room.capacity %> guests</li>
@@ -18,7 +18,7 @@ Number of guests: <%= @group_size %>
             </ul>
         <% end %>
       <% end %>
-    <% elsif room.bookings == [] %>
+    <% elsif room.bookings == [] && room.capacity >= @group_size %>
       <h3>Room <%= room.room_number %> <%= check_box_tag :'booking[room_id]', room.id %></h3>
       <ul>
         <li>Sleeps <%= room.capacity %> guests</li>
