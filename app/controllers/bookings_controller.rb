@@ -37,8 +37,13 @@ class BookingsController < ApplicationController
       @user = User.find_by_id(session[:user_id])
     elsif session[:user_id]
       @user = User.find_by_id(session[:user_id])
-      user_bookings = @user.bookings
-      @bookings = user_bookings.order(:checkin)
+      #binding.pry
+      if @user.admin?
+        @bookings = Booking.all.order(:checkin)
+      else
+        user_bookings = @user.bookings
+        @bookings = user_bookings.order(:checkin)
+      end
     else
       redirect_to root_path
     end

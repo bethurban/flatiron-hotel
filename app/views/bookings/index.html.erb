@@ -9,7 +9,7 @@
   <% end %>
 
 <% else %>
-  <h1>Your existing reservations</h1>
+  <h1>Existing reservations</h1>
 
 <% @bookings.each do |booking| %>
   <% room = Room.find_by_id(booking.room_id) %>
