@@ -37,7 +37,6 @@ class BookingsController < ApplicationController
       @user = User.find_by_id(session[:user_id])
     elsif session[:user_id]
       @user = User.find_by_id(session[:user_id])
-      #binding.pry
       if @user.admin?
         @bookings = Booking.all.order(:checkin)
       else
