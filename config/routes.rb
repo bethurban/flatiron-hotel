@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   post '/available' => 'bookings#new'
   post '/existing_bookings' => 'bookings#index'
   post '/available_rooms' => 'rooms#index'
-  resources :bookings
+  resources :users do
+    resources :bookings, only: [:show, :index, :new, :create]
+  end
+  resources :bookings, only: [:index, :show, :edit, :update]
   resources :rooms
-  resources :users
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
