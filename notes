@@ -2,6 +2,9 @@ Next:
 
 6. Nested routes
 
+/users/1/bookings - user's bookings index, linked to from user's show page
+
+
 7. OmniAuth login
 
 
