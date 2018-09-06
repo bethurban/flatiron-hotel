@@ -1,14 +1,23 @@
 <% if @start && @ending %>
-  <h1>Reservations between <%= @start %> and <%= @ending %></h1>
+  <h1>Reservations between <%= @start.strftime("%B %-d, %Y") %>, and <%= @ending.strftime("%B %-d, %Y") %></h1>
+
+  <% @bookings.each do |booking| %>
+    <% room = Room.find_by_id(booking.room_id) %>
+    <ul>
+      <li><%= link_to "Room #{room.room_number}, check in: #{booking.checkin}, check out: #{booking.checkout}", booking_path(booking) %></li>
+    </ul>
+  <% end %>
+
 <% else %>
-  <h1>Reservations</h1>
-<% end %>
+  <h1>Your existing reservations</h1>
 
 <% @bookings.each do |booking| %>
   <% room = Room.find_by_id(booking.room_id) %>
   <ul>
-    <li><%= link_to "Room #{room.room_number}, check in: #{booking.checkin}, check out: #{booking.checkout}", booking_path(booking) %></li>
+    <li><%= link_to "Room #{room.room_number}, check in: #{booking.checkin}, check out: #{booking.checkout}", user_booking_path(@user, booking) %></li>
   </ul>
+<% end %>
+
 <% end %>
 
 <br>
