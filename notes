@@ -4,6 +4,8 @@ Next:
 
 /users/1/bookings - user's bookings index, linked to from user's show page
 
+- link to all reservations on admin show page doesn't work because admins have no bookings
+  - need to add to params when admin is logged in so we can find that and identify
 
 7. OmniAuth login
 
@@ -18,3 +20,5 @@ Guests should not be able to reserve rooms for dates in the past.
 "Book this room" button on reserve page should only show if there are available rooms.
 
 Why are rooms showing up twice on reserve page sometimes? Rooms aren't being evaluated properly.
+
+Fix date heading on bookings index page to read correctly

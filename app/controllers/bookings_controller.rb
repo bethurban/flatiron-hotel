@@ -32,12 +32,13 @@ class BookingsController < ApplicationController
   def index
     if session[:user_id] && params[:start_date] && params[:end_date]
       @start = Date.new params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i
-      @ending = ending = Date.new params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i
+      @ending = Date.new params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i
       @bookings = Booking.bookings_between(@start, @ending)
       @user = User.find_by_id(session[:user_id])
     elsif session[:user_id]
-      @bookings = Booking.order(:checkin)
       @user = User.find_by_id(session[:user_id])
+      user_bookings = @user.bookings
+      @bookings = user_bookings.order(:checkin)
     else
       redirect_to root_path
     end
