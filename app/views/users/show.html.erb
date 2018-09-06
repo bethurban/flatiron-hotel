@@ -23,19 +23,6 @@
     <%= submit_tag "See available rooms" %>
   <% end %>
 
-
-  <h2>Reserve a room for a guest</h2>
-    <%= form_tag available_path do %>
-      <label>Check-in date: </label>
-      <%= select_date Date.today, prefix: :'booking[checkin]' %><br>
-      <label>Check-out date: </label>
-      <%= select_date Date.today, prefix: :'booking[checkout]' %><br>
-      <label>Number of guests: </label>
-      <%= text_field_tag :'booking[group_size]' %><br>
-      <%= submit_tag "See available rooms" %>
-    <% end %>
-
-
   <br>
   <%= link_to "See all rooms", rooms_path %>
   <br>
