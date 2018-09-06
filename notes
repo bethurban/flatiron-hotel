@@ -13,3 +13,15 @@ Next:
 6. Nested routes
 
 7. OmniAuth login
+
+
+
+Notes:
+
+Guest show page should only show reservations in the future.
+
+Guests should not be able to reserve rooms for dates in the past.
+
+"Book this room" button on reserve page should only show if there are available rooms.
+
+Why are rooms showing up twice on reserve page sometimes? Rooms aren't being evaluated properly.
