@@ -1,6 +1,9 @@
 Next:
 
-7. OmniAuth login
+1. Nested new bookings route
+  - '/users/1/bookings/new'
+
+2. OmniAuth login
 
 Notes:
 
