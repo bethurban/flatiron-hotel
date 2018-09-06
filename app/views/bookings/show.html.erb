@@ -1,6 +1,10 @@
-<h1>Your booking at the Flatiron Hotel</h1>
-Room ID: <%= @booking.room_id %><br>
-User ID: <%= @booking.user_id %><br>
+<h1>Booking at the Flatiron Hotel</h1>
+Room <%= @room.room_number %><br>
+Guest: <%= @user.first_name %> <%= @user.last_name %><br>
 Group size: <%= @booking.group_size %><br>
-Checkin: <%= @booking.checkin %><br>
-Checkout: <%= @booking.checkout %>
+<%= @booking.checkin.strftime("Check in: %B %-d, %Y") %><br>
+<%= @booking.checkout.strftime("Check in: %B %-d, %Y") %>
+<br>
+<br>
+<%= link_to "Back to home screen", user_path(@user)%><br>
+<%= link_to "Log out", signout_path %>

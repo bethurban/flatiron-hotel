@@ -21,6 +21,8 @@ class BookingsController < ApplicationController
   def show
     if session[:user_id]
       @booking = Booking.find_by_id(params[:id])
+      @user = User.find_by_id(@booking.user_id)
+      @room = Room.find_by_id(@booking.room_id)
     else
       redirect_to root_path
     end
