@@ -54,13 +54,16 @@
     <% if @user.bookings != [] %>
       <h2>Existing reservations</h2>
       <% @user.bookings.each do |booking| %>
-        <% room = Room.find_by_id(booking.room_id) %>
+      <ul>
+        <li><% room = Room.find_by_id(booking.room_id) %></li>
         <%= link_to "Check in: #{booking.checkin.strftime("%B %-d, %Y")}, check out: #{booking.checkout.strftime("%B %-d, %Y")}, #{booking.group_size} guests", booking_path(booking) %><br>
         <ul>
           <li>Room <%= room.room_number %>, sleeps <%= room.capacity %> guests</li>
           <li>$<%= room.cost %> per night</li>
         </ul>
+        </ul>
       <% end %>
+
     <% end %>
 
   </section>
