@@ -32,6 +32,7 @@ class RoomsController < ApplicationController
     if session[:user_id]
       @room = Room.find_by_id(params[:id])
       @user = User.find_by_id(session[:user_id])
+      @room_img = "room_#{@room.room_number}.jpg"
     else
       redirect_to root_path
     end
