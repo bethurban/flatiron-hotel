@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_29_142731) do
+ActiveRecord::Schema.define(version: 2018_09_07_202316) do
 
   create_table "bookings", force: :cascade do |t|
     t.integer "room_id"
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(version: 2018_08_29_142731) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.string "name"
+    t.string "image"
+    t.string "uid"
   end
 
 end
