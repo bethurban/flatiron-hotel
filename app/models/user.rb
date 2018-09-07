@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_secure_password
   validates :first_name, :last_name, presence: true, unless: :name, presence: true
   validates_format_of :phone_number, with: /\A[1-9]\d{2}-\d{3}-\d{4}/, message: "format must be XXX-XXX-XXXX"
-  validates :email, presence: true, uniqueness: true, message: "%{value} is associated with an existing account"
+  validates :email, presence: true, uniqueness: true
   validates_format_of :email, with: /@/
   with_options if: :admin? do |admin|
     admin.validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@flatironhotel\.com\z/,
