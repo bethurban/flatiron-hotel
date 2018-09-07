@@ -39,6 +39,7 @@ gem 'bcrypt'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
+gem 'thin'
 
 group :development, :test do
   gem 'pry'

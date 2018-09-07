@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index, :show, :edit, :update, :destroy]
   resources :rooms
+  get '/auth/facebook/callback' => 'sessions#create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
