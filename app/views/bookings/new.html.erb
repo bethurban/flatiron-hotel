@@ -6,7 +6,7 @@ Number of guests: <%= @group_size %>
 </section>
 
 <section>
-<%= form_tag bookings_path do %>
+<%= form_tag user_bookings_path(@user) do %>
   <% @rooms.each do |room| %>
     <% if room.bookings != [] %>
       <% room.bookings.each do |booking| %>

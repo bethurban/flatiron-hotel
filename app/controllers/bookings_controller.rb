@@ -11,10 +11,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    @user = User.find_by_id(session[:user_id])
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to user_booking_path(@user, @booking)
     else
-      redirect_to new_booking_path
+      redirect_to user_available_path(@user)
     end
   end
 

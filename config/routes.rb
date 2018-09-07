@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
   get '/signout' => 'sessions#destroy'
-  post '/available' => 'bookings#new'
   post '/existing_bookings' => 'bookings#index'
   post '/available_rooms' => 'rooms#index'
   resources :users do
     resources :bookings, only: [:show, :index, :new, :create]
+    post '/available' => 'bookings#new'
   end
   resources :bookings, only: [:index, :show, :edit, :update, :destroy]
   resources :rooms
