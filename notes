@@ -2,6 +2,11 @@ Next:
 
 2. OmniAuth login
 
+- Address params in User model - don't allow different User creations w/different params from Facebook vs. usual account creation.
+- Need to look at splitting :name in Users connected to Facebook account?
+  - Allows user.first_name and user.last_name as we've done all throughout
+  - OR eliminate first_name and last_name columns and go with user.name everywhere! EASIER
+
 Notes:
 
 Guest show page should only show reservations in the future.
