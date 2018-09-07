@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bcrypt'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'pry'

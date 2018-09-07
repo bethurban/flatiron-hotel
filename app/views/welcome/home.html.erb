@@ -2,6 +2,9 @@
 
 <img src="<%= image_url('hotel.jpg') %>" alt="Flatiron Hotel" style="width:600px;height:300px;">
 
+<br>
+<%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<br>
 <h2><%= link_to "If you already have a guest account, please log in to reserve a room", signin_path %></h2>
 
 <h3><%= link_to "Create an account if you're new to the hotel", new_user_path %></h3>
