@@ -15,3 +15,7 @@ Booking date dropdown should be accurate for month selected.
 Why are rooms showing up twice on reserve page sometimes? Rooms aren't being evaluated properly.
 
 Need to add error messages for all forms (other than create account).
+
+Create template for homepage/logout links, Flatiron Hotel header.
+
+Dry up controllers like whoaaaa - private methods and class methods?
