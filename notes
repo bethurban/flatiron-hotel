@@ -1,5 +1,7 @@
 Next:
 
+Hotel admin see available rooms not working
+
 Guest show page should only show reservations in the future.
 
 Guests should not be able to reserve rooms for dates in the past.
