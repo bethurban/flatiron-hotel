@@ -3,7 +3,7 @@ Room <%= @room.room_number %><br>
 Guest: <%= @user.name %><br>
 Group size: <%= @booking.group_size %><br>
 <%= @booking.checkin.strftime("Check in: %B %-d, %Y") %><br>
-<%= @booking.checkout.strftime("Check in: %B %-d, %Y") %>
+<%= @booking.checkout.strftime("Check out: %B %-d, %Y") %>
 <br>
 <br>
 <img src="<%= image_url(@room_img) %>" alt="Flatiron Hotel" width="30%" height="30%">

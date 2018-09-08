@@ -45,10 +45,10 @@
       <%= submit_tag "See available rooms" %>
     <% end %>
     <br>
-    <%= link_to "See all rooms", rooms_path %>
+    <h3><%= link_to "See all rooms", rooms_path %></h3>
   </section>
 
-  <h2><%= link_to "Existing reservations", user_bookings_path(@user) %><h2>
+  <h2><%= link_to "Your existing reservations", user_bookings_path(@user) %></h2>
 
 <% end %>
 

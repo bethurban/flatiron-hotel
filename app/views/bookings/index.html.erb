@@ -14,7 +14,7 @@
 <% @bookings.each do |booking| %>
   <% room = Room.find_by_id(booking.room_id) %>
   <ul>
-    <li><%= link_to "Room #{room.room_number}, check in: #{booking.checkin}, check out: #{booking.checkout}", user_booking_path(@user, booking) %></li>
+    <li><%= link_to "Room #{room.room_number}, check in: #{booking.checkin.strftime("%B %-d, %Y")}, check out: #{booking.checkout.strftime("%B %-d, %Y")}", user_booking_path(@user, booking) %></li>
   </ul>
 <% end %>
 
