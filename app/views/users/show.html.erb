@@ -1,5 +1,5 @@
 <% if @user.admin %>
-  <h1>Welcome, manager <%= @user.first_name %> <%= @user.last_name %></h1>
+  <h1>Welcome, manager <%= @user.name %></h1>
 
   <h2><%= link_to "All existing reservations", bookings_path %><h2>
 

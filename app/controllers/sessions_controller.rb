@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       end
 
       session[:user_id] = @user.id
-      binding.pry
+      
       redirect_to user_path(@user)
     else
       @user = User.find_by(email: params[:user][:email])

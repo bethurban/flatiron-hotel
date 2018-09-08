@@ -1,6 +1,6 @@
 <h1>Booking at the Flatiron Hotel</h1>
 Room <%= @room.room_number %><br>
-Guest: <%= @user.first_name %> <%= @user.last_name %><br>
+Guest: <%= @user.name %><br>
 Group size: <%= @booking.group_size %><br>
 <%= @booking.checkin.strftime("Check in: %B %-d, %Y") %><br>
 <%= @booking.checkout.strftime("Check in: %B %-d, %Y") %>

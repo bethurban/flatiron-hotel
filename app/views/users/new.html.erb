@@ -14,8 +14,7 @@
 
 <p>
 <%= form_for(@user) do |f| %>
-  First name: <%= f.text_field :first_name %><br>
-  Last name: <%= f.text_field :last_name %><br>
+  Name: <%= f.text_field :name %><br>
   Email address: <%= f.text_field :email %><br>
   Phone number - <i>format: XXX-XXX-XXXX</i>: <%= f.text_field :phone_number %><br>
   Password: <%= f.text_field :password %><br>
