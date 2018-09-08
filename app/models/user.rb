@@ -10,5 +10,5 @@ class User < ApplicationRecord
     admin.validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@flatironhotel\.com\z/,
                   message: "must be a flatironhotel.com account" }
   end
-  validates :password, confirmation: true, unless: :image, presence: true
+  validates :password, confirmation: true
 end

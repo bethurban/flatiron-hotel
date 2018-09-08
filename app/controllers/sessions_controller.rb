@@ -9,10 +9,13 @@ class SessionsController < ApplicationController
         u.name = auth['info']['name']
         u.email = auth['info']['email']
         u.image = auth['info']['image']
+        u.phone_number = "111-111-1111"
+        u.password = " "
+        u.password_confirmation = " "
       end
-
-      session[:user_id] = @user.id
       
+      session[:user_id] = @user.id
+
       redirect_to user_path(@user)
     else
       @user = User.find_by(email: params[:user][:email])
