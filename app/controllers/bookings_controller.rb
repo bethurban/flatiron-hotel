@@ -39,8 +39,13 @@ class BookingsController < ApplicationController
     if session[:user_id] && params[:start_date] && params[:end_date]
       @start = Date.new params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i
       @ending = Date.new params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i
-      @bookings = Booking.bookings_between(@start, @ending)
       @user = User.find_by_id(session[:user_id])
+      if @start >= Date.today && @start < @ending
+        @bookings = Booking.bookings_between(@start, @ending)
+      else
+        flash[:notice] = "Check-in and check-out dates must be in the future."
+        redirect_to user_path(@user)
+      end
     elsif session[:user_id]
       @user = User.find_by_id(session[:user_id])
       if @user.admin?

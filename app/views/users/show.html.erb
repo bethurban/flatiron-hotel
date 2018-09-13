@@ -1,9 +1,10 @@
 <% if @user.admin %>
   <h1>Welcome, manager <%= @user.name %></h1>
 
-  <h2><%= link_to "All existing reservations", bookings_path %><h2>
+  <h2><%= link_to "All upcoming reservations", bookings_path %><h2>
 
-  <h2>Sort existing reservations by date range</h2>
+  <h2>Sort upcoming reservations by date range</h2>
+  <p id="notice"><i><%= notice %></i></p>
   <%= form_tag existing_bookings_path do %>
     <label>Start date: </label>
     <%= select_date Date.today, prefix: :'start_date' %><br>
@@ -13,6 +14,7 @@
   <% end %>
 
   <h2>See available rooms by date range and party size</h2>
+  <p id="alert"><i><%= alert %></i></p>
   <%= form_tag available_rooms_path do %>
     <label>Start date: </label>
     <%= select_date Date.today, prefix: :'start_date' %><br>
