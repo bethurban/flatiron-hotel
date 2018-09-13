@@ -6,8 +6,4 @@ Group size: <%= @booking.group_size %><br>
 <%= @booking.checkout.strftime("Check out: %B %-d, %Y") %>
 <br>
 <br>
-<img src="<%= image_url(@room_img) %>" alt="Flatiron Hotel" width="30%" height="30%">
-<br>
-<br>
-<%= link_to "Back to home screen", user_path(@user)%><br>
-<%= link_to "Log out", signout_path %>
+<%= link_to image_tag("room_#{@room.room_number}.jpg", alt: "Flatiron Hotel room #{@room.room_number}") %>
