@@ -1,9 +1,9 @@
 Next:
 
+Still seeing repeats of rooms when looking for available rooms.
+
 Booking date dropdown should be accurate for month selected.
 
 "Book this room" button on reserve page should only show if there are available rooms.
 
-Create template for homepage/logout links, Flatiron Hotel header.
-
-Dry up controllers like whoaaaa - private methods and class methods?
+Dry up controllers.
