@@ -1,7 +1,7 @@
 <h1>Room <%= @room.room_number %></h1>
 <h2>$<%= @room.cost %> per night </h2>
 <h2>Capacity: <%= @room.capacity %> guests</h2>
-<img src="<%= image_url(@room_img) %>" alt="Room <%= @room.room_number%>" width="40%" height="40%">
+<%= link_to image_tag("#{@room_img}", alt: "Flatiron Hotel room #{@room.room_number}", class: "img-responsive") %>
 <br>
 <br>
 <%= link_to "Back to all rooms", rooms_path %>
