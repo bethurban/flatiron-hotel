@@ -25,22 +25,14 @@ class RoomsController < ApplicationController
         flash[:alert] = "Check-in and check-out dates must be in the future."
         redirect_to user_path(@user)
       end
-    elsif session[:user_id]
-      @rooms = Room.all
-      @user = User.find_by_id(session[:user_id])
     else
-      redirect_to root_path
+      @rooms = Room.all
     end
   end
 
   def show
-    if session[:user_id]
-      @room = Room.find_by_id(params[:id])
-      @user = User.find_by_id(session[:user_id])
-      @room_img = "room_#{@room.room_number}.jpg"
-    else
-      redirect_to root_path
-    end
+    @room = Room.find_by_id(params[:id])
+    @room_img = "room_#{@room.room_number}.jpg"
   end
 
   private
