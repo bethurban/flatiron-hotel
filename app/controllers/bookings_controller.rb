@@ -3,10 +3,14 @@ class BookingsController < ApplicationController
   def new
     @checkin = Date.new params[:booking][:checkin][:year].to_i, params[:booking][:checkin][:month].to_i, params[:booking][:checkin][:day].to_i
     @checkout = Date.new params[:booking][:checkout][:year].to_i, params[:booking][:checkout][:month].to_i, params[:booking][:checkout][:day].to_i
-    @date_range = Range.new(@checkin, @checkout)
-    @group_size = params[:booking][:group_size].to_i
-    @rooms = Room.all
     @user = User.find_by_id(session[:user_id])
+    if @checkin >= Date.today && @checkin < @checkout
+      @date_range = Range.new(@checkin, @checkout)
+      @group_size = params[:booking][:group_size].to_i
+      @rooms = Room.all
+    else
+      redirect_to user_path(@user)
+    end
   end
 
   def create
