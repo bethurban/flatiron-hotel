@@ -35,7 +35,7 @@
 
   <section>
 
-    <h2>Reserve a room</h2>
+    <h3>Reserve a room</h3>
     <p id="notice"><i><%= notice %></i></p>
     <%= form_tag user_available_path(@user) do %>
       <label>Check-in date: </label>
@@ -50,6 +50,6 @@
     <h3><%= link_to "See all rooms", rooms_path %></h3>
   </section>
 
-  <h2><%= link_to "Your upcoming reservations", user_bookings_path(@user) %></h2>
+  <h3><%= link_to "Your upcoming reservations", user_bookings_path(@user) %></h3>
 
 <% end %>
