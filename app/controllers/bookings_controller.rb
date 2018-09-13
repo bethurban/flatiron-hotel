@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
       @group_size = params[:booking][:group_size].to_i
       @rooms = Room.all
     else
+      flash[:notice] = "Check-in and check-out dates must be in the future."
       redirect_to user_path(@user)
     end
   end

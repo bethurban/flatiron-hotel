@@ -1,14 +1,12 @@
 Next:
 
-Guests should not be able to reserve rooms for dates in the past.
+Need to add error messages for all forms (other than create account).
 
 Booking date dropdown should be accurate for month selected.
 
 "Book this room" button on reserve page should only show if there are available rooms.
 
 Why are rooms showing up twice on reserve page sometimes? Rooms aren't being evaluated properly.
-
-Need to add error messages for all forms (other than create account).
 
 Create template for homepage/logout links, Flatiron Hotel header.
 

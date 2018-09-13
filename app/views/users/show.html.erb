@@ -34,7 +34,7 @@
   <section>
 
     <h2>Reserve a room</h2>
-
+    <p id="notice"><i><%= notice %></i></p>
     <%= form_tag user_available_path(@user) do %>
       <label>Check-in date: </label>
       <%= select_date Date.today, prefix: :'booking[checkin]' %><br>
