@@ -66,7 +66,7 @@ p {
   padding-top: 9px;
   font-weight: bold;
   &:hover {
-    color: white;
+    color: #49daff;
     text-decoration: none;
   }
 }
@@ -94,5 +94,13 @@ footer {
       float: left;
       margin-left: 15px;
     }
+  }
+}
+
+/* header */
+
+header {
+  .navbar {
+    background-color: #49daff;
   }
 }
