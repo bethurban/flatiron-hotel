@@ -9,13 +9,15 @@
   <% end %>
 
 <% else %>
-  <h1>Existing reservations</h1>
+  <h1>Upcoming reservations</h1>
 
 <% @bookings.each do |booking| %>
-  <% room = Room.find_by_id(booking.room_id) %>
-  <ul>
-    <li><%= link_to "Room #{room.room_number}, check in: #{booking.checkin.strftime("%B %-d, %Y")}, check out: #{booking.checkout.strftime("%B %-d, %Y")}", user_booking_path(@user, booking) %></li>
-  </ul>
+  <% if booking.checkin >= Date.today %>
+    <% room = Room.find_by_id(booking.room_id) %>
+    <ul>
+      <li><%= link_to "Room #{room.room_number}, check in: #{booking.checkin.strftime("%B %-d, %Y")}, check out: #{booking.checkout.strftime("%B %-d, %Y")}", user_booking_path(@user, booking) %></li>
+    </ul>
+  <% end %>
 <% end %>
 
 <% end %>
