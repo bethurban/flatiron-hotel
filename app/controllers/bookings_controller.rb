@@ -4,10 +4,16 @@ class BookingsController < ApplicationController
     @checkin = Date.new params[:booking][:checkin][:year].to_i, params[:booking][:checkin][:month].to_i, params[:booking][:checkin][:day].to_i
     @checkout = Date.new params[:booking][:checkout][:year].to_i, params[:booking][:checkout][:month].to_i, params[:booking][:checkout][:day].to_i
     @user = User.find_by_id(session[:user_id])
-    if @checkin >= Date.today && @checkin < @checkout
-      @group_size = params[:booking][:group_size].to_i
-    else
+    @group_size = params[:booking][:group_size].to_i
+    if @checkin >= Date.today && @checkin < @checkout && @group_size > 0
+    elsif @group_size > 0
       flash[:notice] = "Check-in and check-out dates must be in the future."
+      redirect_to user_path(@user)
+    elsif @checkin >= Date.today && @checkin < @checkout && @group_size == 0
+      flash[:notice] = "Please enter the number of guests (1, 2, etc.)."
+      redirect_to user_path(@user)
+    else
+      flash[:notice] = "Check-in and check-out dates must be in the future, and a number of guests must be entered (1, 2, etc.)."
       redirect_to user_path(@user)
     end
   end
