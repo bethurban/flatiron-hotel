@@ -1,21 +1,13 @@
 <%= form_tag user_bookings_path(@user) do %>
   <% @rooms.each do |room| %>
-    <% if room.bookings != [] %>
-      <% room.bookings.each do |booking| %>
-        <% if !booking.date_range.overlaps?(@date_range) && room.capacity >= @group_size %>
-            <h3>Room <%= room.room_number %> <%= check_box_tag :'booking[room_id]', room.id %></h3>
-            <ul>
-              <li>Sleeps <%= room.capacity %> guests</li>
-              <li>$<%= room.cost %> per night</li>
-            </ul>
-        <% end %>
+    <% if room.bookings != [] && room.capacity >= @group_size %>
+      <% if room.bookings.all? { |booking| !booking.date_range.overlaps?(@date_range) } %>
+          <% @room = room %>
+          <%= render 'list_room' %>
       <% end %>
     <% elsif room.bookings == [] && room.capacity >= @group_size %>
-      <h3>Room <%= room.room_number %> <%= check_box_tag :'booking[room_id]', room.id %></h3>
-      <ul>
-        <li>Sleeps <%= room.capacity %> guests</li>
-        <li>$<%= room.cost %> per night</li>
-      </ul>
+        <% @room = room %>
+        <%= render 'list_room' %>
     <% end %>
   <% end %>
 <%= hidden_field_tag :'booking[user_id]', session[:user_id] %>
