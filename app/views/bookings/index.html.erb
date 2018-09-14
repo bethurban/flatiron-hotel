@@ -11,7 +11,9 @@
 <% else %>
   <h1>Upcoming reservations</h1>
 
-  <% if @bookings == [] %>
+  <% if @bookings == [] && @user.admin? %>
+    <h2>There are no upcoming reservations.</h2>
+  <% elsif @bookings == [] %>
     <h2>You have no upcoming reservations. Please return to the home screen to book a room.</h2>
   <% else @bookings.each do |booking| %>
       <% if booking.checkin >= Date.today %>
