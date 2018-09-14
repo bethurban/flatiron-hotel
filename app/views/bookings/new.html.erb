@@ -1,8 +1,6 @@
 <h1> Make a reservation </h1>
 
-<section>
 Booking dates: <%= @checkin.strftime("%B %-d, %Y") %>, to <%= @checkout.strftime("%B %-d, %Y") %><br>
 Number of guests: <%= @group_size %>
-</section>
 
 <%= render 'form' %>
