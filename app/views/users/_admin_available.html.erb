@@ -1,8 +1,8 @@
 <%= form_tag available_rooms_path do %>
   <label>Start date: </label>
-  <%= select_date Date.today, prefix: :'start_date' %><br>
+  <%= select_date Date.today, order: [:month, :day, :year], prefix: :'start_date' %><br>
   <label>End date: </label>
-  <%= select_date Date.today, prefix: :'end_date' %><br>
+  <%= select_date Date.today, order: [:month, :day, :year], prefix: :'end_date' %><br>
   <label>Number of guests: </label>
   <%= text_field_tag :'guests' %><br>
   <%= submit_tag "See available rooms" %>

@@ -1,7 +1,7 @@
 <%= form_tag existing_bookings_path do %>
   <label>Start date: </label>
-  <%= select_date Date.today, prefix: :'start_date' %><br>
+  <%= select_date Date.today, order: [:month, :day, :year], prefix: :'start_date' %><br>
   <label>End date: </label>
-  <%= select_date Date.today, prefix: :'end_date' %><br>
+  <%= select_date Date.today, order: [:month, :day, :year], prefix: :'end_date' %><br>
   <%= submit_tag "See all reservations between these dates" %>
 <% end %>
