@@ -5,44 +5,22 @@
 
   <h2>Sort upcoming reservations by date range</h2>
   <p id="notice"><i><%= notice %></i></p>
-  <%= form_tag existing_bookings_path do %>
-    <label>Start date: </label>
-    <%= select_date Date.today, prefix: :'start_date' %><br>
-    <label>End date: </label>
-    <%= select_date Date.today, prefix: :'end_date' %><br>
-    <%= submit_tag "See all reservations between these dates" %>
-  <% end %>
+  <%= render 'admin_upcoming' %>
 
   <h2>See available rooms by date range and party size</h2>
   <p id="alert"><i><%= alert %></i></p>
-  <%= form_tag available_rooms_path do %>
-    <label>Start date: </label>
-    <%= select_date Date.today, prefix: :'start_date' %><br>
-    <label>End date: </label>
-    <%= select_date Date.today, prefix: :'end_date' %><br>
-    <label>Number of guests: </label>
-    <%= text_field_tag :'guests' %><br>
-    <%= submit_tag "See available rooms" %>
-  <% end %>
+  <%= render 'admin_available' %>
+
   <br>
+
   <%= link_to "Add a room", new_room_path %>
 
 <% else %>
   <h1>Welcome to the Flatiron Hotel, <%= @user.name %></h1>
 
   <h2>Reserve a room</h2>
-
   <p id="notice"><i><%= notice %></i></p>
-
-  <%= form_tag user_available_path(@user) do %>
-    <label>Check-in date: </label>
-    <%= select_date Date.today, prefix: :'booking[checkin]' %><br>
-    <label>Check-out date: </label>
-    <%= select_date Date.today, prefix: :'booking[checkout]' %><br>
-    <label>Number of guests: </label>
-    <%= text_field_tag :'booking[group_size]' %><br>
-    <%= submit_tag "See available rooms" %>
-  <% end %>
+  <%= render 'user_available' %>
 
   <h2><%= link_to "Your upcoming reservations", user_bookings_path(@user) %></h2>
 

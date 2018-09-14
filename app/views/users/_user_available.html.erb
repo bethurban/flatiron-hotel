@@ -1,0 +1,9 @@
+<%= form_tag user_available_path(@user) do %>
+  <label>Check-in date: </label>
+  <%= select_date Date.today, prefix: :'booking[checkin]' %><br>
+  <label>Check-out date: </label>
+  <%= select_date Date.today, prefix: :'booking[checkout]' %><br>
+  <label>Number of guests: </label>
+  <%= text_field_tag :'booking[group_size]' %><br>
+  <%= submit_tag "See available rooms" %>
+<% end %>
