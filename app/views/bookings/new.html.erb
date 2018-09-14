@@ -5,31 +5,4 @@ Booking dates: <%= @checkin.strftime("%B %-d, %Y") %>, to <%= @checkout.strftime
 Number of guests: <%= @group_size %>
 </section>
 
-<section>
-<%= form_tag user_bookings_path(@user) do %>
-  <% @rooms.each do |room| %>
-    <% if room.bookings != [] %>
-      <% room.bookings.each do |booking| %>
-        <% if !booking.date_range.overlaps?(@date_range) && room.capacity >= @group_size %>
-            <h3>Room <%= room.room_number %> <%= check_box_tag :'booking[room_id]', room.id %></h3>
-            <ul>
-              <li>Sleeps <%= room.capacity %> guests</li>
-              <li>$<%= room.cost %> per night</li>
-            </ul>
-        <% end %>
-      <% end %>
-    <% elsif room.bookings == [] && room.capacity >= @group_size %>
-      <h3>Room <%= room.room_number %> <%= check_box_tag :'booking[room_id]', room.id %></h3>
-      <ul>
-        <li>Sleeps <%= room.capacity %> guests</li>
-        <li>$<%= room.cost %> per night</li>
-      </ul>
-    <% end %>
-  <% end %>
-<%= hidden_field_tag :'booking[user_id]', session[:user_id] %>
-<%= hidden_field_tag :'booking[group_size]', @group_size %>
-<%= hidden_field_tag :'booking[checkin]', @checkin %>
-<%= hidden_field_tag :'booking[checkout]', @checkout %>
-<%= submit_tag "Book this room" %>
-<% end %>
-</section>
+<%= render 'form' %>

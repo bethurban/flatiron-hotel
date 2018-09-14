@@ -1,6 +1,11 @@
 Next:
 
 Still seeing repeats of rooms when looking for available rooms.
+ - What's happening:
+    In the form on bookings#new, if any of the room's bookings don't overlap with the entered date range,
+    that room will be listed.
+    Form needs to somehow be update so that if ANY of a room's bookings overlap with @date_range, then the
+    room can't be listed.
 
 Booking date dropdown should be accurate for month selected.
 
