@@ -1,8 +1,8 @@
 <div class="center jumbotron">
   <h1>Welcome to the Flatiron Hotel</h1>
 
-  <%= link_to image_tag("hotel.jpg", alt: "Flatiron Hotel", class: "img-responsive") %>
+  <%= button_to "Create an account", new_user_path, class: "button", method: :get %>
 
-  <h3><%= link_to "Create a Flatiron Hotel account", new_user_path, class: "btn btn-lg btn-primary" %></h3>
+  <%= link_to image_tag("hotel.jpg", alt: "Flatiron Hotel", class: "img-responsive") %>
 
 </div>

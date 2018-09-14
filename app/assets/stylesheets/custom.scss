@@ -1,10 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* mixins, variables, etc. */
-
-$gray-medium-light: #eaeaea;
-
 /* universal */
 body {
   font: $font-family-sans-serif;
@@ -24,6 +20,22 @@ textarea {
   h1 {
     margin-bottom: 10px;
   }
+}
+
+.button {
+    background-color: #51a8ff;
+    border: none;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 23px;
+	font-family: sans-serif;
+    width: 400px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 40px;
 }
 
 /* typography */
@@ -75,8 +87,8 @@ p {
 
 footer {
   margin-top: 45px;
+  margin-bottom: 45px;
   padding-top: 5px;
-  border-top: 1px solid $gray-medium-light;
   color: $gray-light;
   a {
     color: $gray;
@@ -86,14 +98,6 @@ footer {
   }
   small {
     float: left;
-  }
-  ul {
-    float: right;
-    list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
   }
 }
 
