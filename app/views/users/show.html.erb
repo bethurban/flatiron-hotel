@@ -24,9 +24,6 @@
     <%= text_field_tag :'guests' %><br>
     <%= submit_tag "See available rooms" %>
   <% end %>
-
-  <br>
-  <%= link_to "See all rooms", rooms_path %>
   <br>
   <%= link_to "Add a room", new_room_path %>
 
@@ -46,8 +43,6 @@
     <%= text_field_tag :'booking[group_size]' %><br>
     <%= submit_tag "See available rooms" %>
   <% end %>
-
-  <h2><%= link_to "See all rooms", rooms_path %></h2>
 
   <h2><%= link_to "Your upcoming reservations", user_bookings_path(@user) %></h2>
 
