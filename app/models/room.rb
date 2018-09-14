@@ -6,17 +6,19 @@ class Room < ApplicationRecord
     available = []
     range = Range.new(start_date, end_date)
     self.all.each do |room|
-      if room.bookings != []
-        room.bookings.each do |booking|
-          if !booking.date_range.overlaps?(range) && room.capacity >= group_size && !available.include?(room)
-            available << room
-          end
+      if room.bookings != [] && room.capacity >= group_size
+        if room.bookings.all? { |booking| !booking.date_range.overlaps?(range) }
+          available << room
         end
       elsif room.capacity >= group_size
         available << room
       end
     end
-    available
+    if available != []
+      available
+    else
+      "There are no rooms available. Please return to the home screen to enter new dates or a different group size."
+    end
   end
 
 end
