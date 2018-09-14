@@ -1,18 +1,25 @@
 <%= form_tag user_bookings_path(@user) do %>
+  <% available = [] %>
   <% @rooms.each do |room| %>
     <% if room.bookings != [] && room.capacity >= @group_size %>
       <% if room.bookings.all? { |booking| !booking.date_range.overlaps?(@date_range) } %>
-          <% @room = room %>
-          <%= render 'list_room' %>
+          <% available << room %>
       <% end %>
     <% elsif room.bookings == [] && room.capacity >= @group_size %>
-        <% @room = room %>
-        <%= render 'list_room' %>
+        <% available << room %>
     <% end %>
   <% end %>
-<%= hidden_field_tag :'booking[user_id]', session[:user_id] %>
-<%= hidden_field_tag :'booking[group_size]', @group_size %>
-<%= hidden_field_tag :'booking[checkin]', @checkin %>
-<%= hidden_field_tag :'booking[checkout]', @checkout %>
-<%= submit_tag "Book this room" %>
+  <% if available != [] %>
+    <% available.each do |room| %>
+      <% @room = room %>
+      <%= render 'list_room' %>
+    <% end %>
+    <%= hidden_field_tag :'booking[user_id]', session[:user_id] %>
+    <%= hidden_field_tag :'booking[group_size]', @group_size %>
+    <%= hidden_field_tag :'booking[checkin]', @checkin %>
+    <%= hidden_field_tag :'booking[checkout]', @checkout %>
+    <%= submit_tag "Book this room" %>
+  <% elsif available == [] %>
+    <h2> There are no available rooms. Please return to the home screen to choose new dates or enter a different group size.</h2>
+  <% end %>
 <% end %>
