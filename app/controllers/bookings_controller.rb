@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @user = User.find_by_id(session[:user_id])
     if @booking.save
+      flash[:notice] = "Your booking has been confirmed!"
       redirect_to user_booking_path(@user, @booking)
     else
       redirect_to user_available_path(@user)
