@@ -2,6 +2,9 @@ class Room < ApplicationRecord
   has_many :bookings
   has_many :users, through: :bookings
   mount_uploader :image, ImageUploader
+  validates :room_number, :cost, :capacity, :image, presence: true
+  validates :room_number, uniqueness: true, if: -> { room_number.present? }
+
 
   def self.available_rooms(start_date, end_date, group_size)
     available = []
