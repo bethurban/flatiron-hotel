@@ -1,6 +1,7 @@
 class Room < ApplicationRecord
   has_many :bookings
   has_many :users, through: :bookings
+  mount_uploader :image, ImageUploader
 
   def self.available_rooms(start_date, end_date, group_size)
     available = []
