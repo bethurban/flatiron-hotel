@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:show, :index, :new, :create]
     post '/available' => 'bookings#new'
   end
-  resources :bookings, only: [:index, :show, :edit, :update, :destroy]
-  resources :rooms
+  resources :bookings, only: [:index, :show]
+  resources :rooms, only: [:index, :show, :new, :create]
   get '/auth/facebook/callback' => 'sessions#create'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
