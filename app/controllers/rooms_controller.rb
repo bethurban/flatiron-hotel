@@ -39,13 +39,12 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find_by_id(params[:id])
-    @room_img = "room_#{@room.room_number}.jpg"
   end
 
   private
 
   def room_params
-    params.require(:room).permit(:room_number, :cost, :capacity, :picture)
+    params.require(:room).permit(:room_number, :cost, :capacity, :image)
   end
 
 end
