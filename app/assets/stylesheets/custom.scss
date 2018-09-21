@@ -83,6 +83,12 @@ p {
   }
 }
 
+header {
+  .navbar {
+    background-color: #49daff;
+  }
+}
+
 /* footer */
 
 footer {
@@ -98,13 +104,5 @@ footer {
   }
   small {
     float: left;
-  }
-}
-
-/* header */
-
-header {
-  .navbar {
-    background-color: #49daff;
   }
 }
