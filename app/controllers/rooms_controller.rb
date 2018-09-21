@@ -18,7 +18,7 @@ class RoomsController < ApplicationController
     if session[:user_id] && params[:start_date] && params[:end_date] && params[:guests]
       @start = Date.new params[:start_date][:year].to_i, params[:start_date][:month].to_i, params[:start_date][:day].to_i
       @ending = Date.new params[:end_date][:year].to_i, params[:end_date][:month].to_i, params[:end_date][:day].to_i
-      @user = User.find_by_id(session[:user_id])
+      current_user
       @group_size = params[:guests].to_i
       if @start >= Date.today && @start < @ending && @group_size > 0
         @rooms = Room.available_rooms(@start, @ending, @group_size)
