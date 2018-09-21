@@ -41,6 +41,10 @@ class RoomsController < ApplicationController
     @room = Room.find_by_id(params[:id])
   end
 
+  def cost
+    @rooms = Room.cost
+  end
+
   private
 
   def room_params

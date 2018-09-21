@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     post '/available' => 'bookings#new'
   end
   resources :bookings, only: [:index, :show]
+  get '/rooms/cost' => 'rooms#cost'
   resources :rooms, only: [:index, :show, :new, :create]
   get '/auth/facebook/callback' => 'sessions#create'
 

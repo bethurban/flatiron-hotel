@@ -4,6 +4,7 @@ class Room < ApplicationRecord
   mount_uploader :image, ImageUploader
   validates :room_number, :cost, :capacity, :image, presence: true
   validates :room_number, uniqueness: true, if: -> { room_number.present? }
+  scope :cost, -> { where("cost < 100") }
 
 
   def self.available_rooms(start_date, end_date, group_size)
