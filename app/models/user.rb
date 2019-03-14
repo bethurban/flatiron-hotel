@@ -11,4 +11,5 @@ class User < ApplicationRecord
                   message: "must be a @flatironhotel.com account if you are a hotel manager" }
   end
   validates :password, confirmation: true
+
 end
