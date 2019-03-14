@@ -45,6 +45,7 @@ gem 'thin'
 gem 'bootstrap-sass', '>= 3.4.1'
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'pry'
