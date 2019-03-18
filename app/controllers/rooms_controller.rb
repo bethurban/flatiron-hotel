@@ -34,6 +34,10 @@ class RoomsController < ApplicationController
       end
     else
       @rooms = Room.all
+      respond_to do |f|
+        f.html {render :index}
+        f.json {render json: @rooms}
+      end
     end
   end
 
