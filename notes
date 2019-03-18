@@ -1,1 +1,9 @@
+1. Add JS to app.
 
+2. Set up click listener for "all rooms" index link.
+
+3. getRooms function: Set up AJAX request for Room index page, display JSON on page.
+
+4. Write JS class Room.
+
+5. Write prototype function on Room object to create HTML. (39 m in video)
