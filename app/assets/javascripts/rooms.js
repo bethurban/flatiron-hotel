@@ -20,7 +20,7 @@ function getRooms() {
     console.log("Data: ", data);
     let myRoom = new Room(data[0]);
     let myRoomHTML = myRoom.roomHTML();
-    $('.rooms_div').innerHTML += myRoomHTML;
+    $('.rooms_div').innerHTML = myRoomHTML;
   });
 };
 
@@ -35,14 +35,5 @@ class Room {
 };
 
 Room.prototype.roomHTML = function() {
-  return (`
-    <div>
-      <h3>link_to "Room #{this.room_number}", room_path(this)</h3>
-      image_tag this.image.thumb.url
-        <ul>
-          <li>Cost: $ this.cost  per night</li>
-          <li>Capacity: this.capacity  guests</li>
-        </ul>
-    </div>
-    `);
+  return (`<h1>Hello World</h1>`);
 };
