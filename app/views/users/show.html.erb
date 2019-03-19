@@ -18,10 +18,10 @@
 <% else %>
   <h1>Welcome to the Flatiron Hotel, <%= @user.name %></h1>
 
+  <h2><%= link_to "Your upcoming reservations", user_bookings_path(@user) %></h2>
+
   <h2>Reserve a room</h2>
   <p id="notice"><i><%= notice %></i></p>
   <%= render 'user_available' %>
-
-  <h2><%= link_to "Your upcoming reservations", user_bookings_path(@user) %></h2>
 
 <% end %>
