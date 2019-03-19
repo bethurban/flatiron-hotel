@@ -30,3 +30,16 @@ class Room {
     this.image = obj.image;
   };
 };
+
+Room.prototype.postHTML = function() {
+  return (`
+    <div>
+      <h3>${link_to "Room #{this.room_number}", room_path(this)}</h3>
+      ${image_tag this.image.thumb.url}
+        <ul>
+          <li>Cost: $${ this.cost } per night</li>
+          <li>Capacity: ${ this.capacity } guests</li>
+        </ul>
+    </div>
+    `);
+};
