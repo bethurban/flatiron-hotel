@@ -19,6 +19,7 @@ function getRooms() {
 
     console.log("Data: ", data);
     // need a loop here to do the below for every room in data
+    document.getElementById('rooms_div').innerHTML = `<h2>All Rooms</h2>`;
     let myRoom = new Room(data[0]);
     let myRoomHTML = myRoom.roomHTML();
     document.getElementById('rooms_div').innerHTML += myRoomHTML;
