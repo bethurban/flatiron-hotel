@@ -4,7 +4,7 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "All rooms", rooms_path %></li>
+        <li><%= link_to "All rooms", rooms_path, class: "all_rooms" %></li>
         <li><%= link_to "Log in", signin_path %></li>
         <li><%= link_to "Log in with Facebook", '/auth/facebook' %></li>
         <li><%= link_to "Log out", signout_path %></li>
