@@ -1,14 +1,18 @@
 <h1>Flatiron Hotel rooms</h1>
 
-<% if @rooms.is_a? String %>
-  <h2><%= @rooms %></h2>
-<% else @rooms.each do |room| %>
-  <h3><%= link_to "Room #{room.room_number}", room_path(room)%></h3>
-  <%= image_tag room.image.thumb.url %>
-    <ul>
-      <li>Cost: $<%= room.cost %> per night</li>
-      <li>Capacity: <%= room.capacity %> guests</li>
-    </ul>
-  <br>
+<div class="rooms_div">
+
+  <% if @rooms.is_a? String %>
+    <h2><%= @rooms %></h2>
+  <% else @rooms.each do |room| %>
+    <h3><%= link_to "Room #{room.room_number}", room_path(room)%></h3>
+    <%= image_tag room.image.thumb.url %>
+      <ul>
+        <li>Cost: $<%= room.cost %> per night</li>
+        <li>Capacity: <%= room.capacity %> guests</li>
+      </ul>
+    <br>
+    <% end %>
   <% end %>
-<% end %>
+
+</div>
