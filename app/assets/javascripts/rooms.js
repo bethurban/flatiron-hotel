@@ -18,7 +18,7 @@ function getRooms() {
   }).done(function(data) {
 
     console.log("Data: ", data);
-    var data = data;
+    // debugger;
     let myRoom = new Room(data[0]);
     let myRoomHTML = myRoom.roomHTML();
     document.getElementById('rooms_div').innerHTML = myRoomHTML;
@@ -36,5 +36,13 @@ class Room {
 };
 
 Room.prototype.roomHTML = function() {
-  return (`<h3>Room #${ this.room_number }</h3>`);
+  return (`<div>
+    <h3>Room #${ this.room_number }</h3>
+    <img src="${ this.image.image.thumb.url }">
+    <ul>
+      <li>Cost: $${ this.cost }</li>
+      <li>Capacity: ${ this.capacity } guests</li>
+    </ul>
+    </div>
+    `);
 };
