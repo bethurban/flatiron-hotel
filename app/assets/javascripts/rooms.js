@@ -20,7 +20,7 @@ function getRooms() {
     console.log("Data: ", data);
     let myRoom = new Room(data[0]);
     let myRoomHTML = myRoom.roomHTML();
-    $('.rooms_div').innerHTML = myRoomHTML;
+    document.getElementById('rooms_div').innerHTML = myRoomHTML;
   });
 };
 
