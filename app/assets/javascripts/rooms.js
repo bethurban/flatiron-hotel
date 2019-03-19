@@ -18,11 +18,12 @@ function getRooms() {
   }).done(function(data) {
 
     console.log("Data: ", data);
-    // need a loop here to do the below for every room in data
     document.getElementById('rooms_div').innerHTML = `<h2>All Rooms</h2>`;
-    let myRoom = new Room(data[0]);
-    let myRoomHTML = myRoom.roomHTML();
-    document.getElementById('rooms_div').innerHTML += myRoomHTML;
+    for (i = 0; i < data.length; i ++) {
+      let myRoom = new Room(data[i]);
+      let myRoomHTML = myRoom.roomHTML();
+      document.getElementById('rooms_div').innerHTML += myRoomHTML;
+    };
   });
 };
 
