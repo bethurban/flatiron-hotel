@@ -19,11 +19,11 @@ function getRooms() {
 
     console.log("Data: ", data);
     document.getElementById('rooms_div').innerHTML = `<h2>All Rooms</h2>`;
-    for (i = 0; i < data.length; i ++) {
-      let myRoom = new Room(data[i]);
+    data.forEach(function(room) {
+      let myRoom = new Room(room);
       let myRoomHTML = myRoom.roomHTML();
       document.getElementById('rooms_div').innerHTML += myRoomHTML;
-    };
+    });
   });
 };
 
