@@ -20,3 +20,13 @@ function getRooms() {
     console.log("Data: ", data);
   });
 };
+
+class Room {
+  constructor(obj) {
+    this.id = obj.id;
+    this.room_number = obj.room_number;
+    this.cost = obj.cost;
+    this.capacity = obj.capacity;
+    this.image = obj.image;
+  };
+};
