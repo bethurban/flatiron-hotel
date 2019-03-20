@@ -1,9 +1,9 @@
 $(document).ready(function() {
   console.log('rooms.js has loaded');
-  listenForClick();
+  listenForRoomsClick();
 });
 
-function listenForClick() {
+function listenForRoomsClick() {
   $('.all_rooms').on('click', function(event) {
     event.preventDefault();
     getRooms();
