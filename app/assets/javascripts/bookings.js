@@ -1,8 +1,8 @@
 $(document).ready(function() {
   console.log('bookings.js has loaded');
-  listenForClick();
+  listenForBookingsClick();
 });
 
 function listenForBookingsClick() {
-  
+
 };
