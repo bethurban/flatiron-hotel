@@ -10,6 +10,13 @@ function listenForBookingsClick() {
   });
 };
 
+function listenForBookingClick() {
+  $('.booking_link').on('click', function(event) {
+    event.preventDefault();
+    console.log("Booking clicked!");
+  })
+}
+
 function getBookings() {
   var url = window.location.href.split("/");
   var id = url[url.length - 1];
@@ -25,6 +32,7 @@ function getBookings() {
       let myBookingHTML = myBooking.bookingHTML();
       document.getElementById('bookings_div').innerHTML += myBookingHTML;
     });
+    listenForBookingClick();
   });
 };
 
@@ -46,7 +54,7 @@ Booking.prototype.bookingHTML = function() {
   var checkin = checkinDate.toDateString();
   var checkout = checkoutDate.toDateString();
   return (`<p>
-    Check in on ${checkin}, check out on ${checkout}. Room #${this.room_number}. Group size: ${this.group_size}.
+    Check in on ${checkin}, check out on ${checkout} - <a href="#" booking="${this.id}" class="booking_link">see details</a>
     </p>
     `);
 };
