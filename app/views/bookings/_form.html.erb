@@ -17,9 +17,17 @@
 <script type="text/javascript" charset="utf-8">
   $(function () {
     $('form').submit(function(event) {
-      ///prevent form from submitting the default way/
       event.preventDefault();
-      alert("We grabbed the submit button!");
+      
+      var url = window.location.href.split("/");
+      var id = url[url.length - 2];
+
+      var values = $(this).serialize();
+      var booking = $.post(`/users/${id}/bookings`, values);
+
+      booking.done(function(data) {
+        console.log("here's the data: ", data);
+      });
     });
   });
 </script>
