@@ -7,7 +7,7 @@ function listenForRoomsClick() {
   $('.all_rooms').on('click', function(event) {
     event.preventDefault();
     getRooms();
-  })
+  });
 };
 
 function getRooms() {
