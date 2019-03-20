@@ -13,3 +13,13 @@
     <%= submit_tag "Book this room" %>
   <% end %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+      ///prevent form from submitting the default way/
+      event.preventDefault();
+      alert("We grabbed the submit button!");
+    });
+  });
+</script>

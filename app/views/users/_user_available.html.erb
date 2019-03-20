@@ -7,12 +7,21 @@
   <%= text_field_tag :'booking[group_size]' %><br>
   <%= submit_tag "See available rooms" %>
 <% end %>
-
+<!-- 
 <script type="text/javascript" charset="utf-8">
   $(function () {
     $('form').submit(function(event) {
       event.preventDefault();
-      alert("Grabbed the submit button");
+      debugger;
+      // var url = window.location.href.split("/");
+      // var id = url[url.length - 1];
+      //
+      // var values = $(this).serialize();
+      // var booking = $.post(`/users/${id}/available`), values);
+      //
+      // booking.done(function(data){
+        // Handle response
+      // });
     });
   });
-</script>
+</script> -->
