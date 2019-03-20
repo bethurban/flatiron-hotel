@@ -34,6 +34,7 @@ class Booking {
     this.group_size = obj.group_size;
     this.checkin = obj.checkin;
     this.checkout = obj.checkout;
+    this.room_number = obj.room.room_number
   };
 };
 
@@ -45,7 +46,7 @@ Booking.prototype.bookingHTML = function() {
   var checkin = checkinDate.toDateString();
   var checkout = checkoutDate.toDateString();
   return (`<p>
-    Check in on ${checkin}, check out on ${checkout}. Group size: ${this.group_size}
+    Check in on ${checkin}, check out on ${checkout}. Room #${this.room_number}. Group size: ${this.group_size}.
     </p>
     `);
 };
