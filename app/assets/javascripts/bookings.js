@@ -47,6 +47,9 @@ function getBooking(booking) {
     dataType: 'json'
   }).done(function(data) {
     console.log("This booking's data: ", data);
+    let myBooking = new Booking(data);
+    let myBookingHTML = myBooking.bookingDetailsHTML();
+    document.getElementById(`booking_details_${bookingId}`).innerHTML += myBookingHTML;
   });
 };
 
@@ -70,5 +73,14 @@ Booking.prototype.bookingHTML = function() {
   return (`<p>
     Check in on ${checkin}, check out on ${checkout} - <a href="${this.id}" class="booking_link">see details</a>
     </p>
+    <div id="booking_details_${this.id}"></div>
+    `);
+};
+
+Booking.prototype.bookingDetailsHTML = function() {
+  return (`<ul>
+    <li>Room #${this.room_number}</li>
+    <li>Group size: ${this.group_size}</li>
+    </ul>
     `);
 };
