@@ -13,7 +13,7 @@ function listenForBookingsClick() {
 function listenForBookingClick() {
   $('.booking_link').on('click', function(event) {
     event.preventDefault();
-    console.log("Booking clicked!");
+    getBooking(this.href);
   })
 }
 
@@ -36,6 +36,20 @@ function getBookings() {
   });
 };
 
+function getBooking(booking) {
+  var userURL = window.location.href.split("/");
+  var userId = userURL[userURL.length - 1];
+  var bookingURL = booking.split("/");
+  var bookingId = bookingURL[bookingURL.length - 1];
+  $.ajax({
+    url: `https://localhost:3000/users/${userId}/bookings/${bookingId}`,
+    method: 'get',
+    dataType: 'json'
+  }).done(function(data) {
+    console.log("This booking's data: ", data);
+  });
+};
+
 class Booking {
   constructor(obj) {
     this.id = obj.id;
@@ -54,7 +68,7 @@ Booking.prototype.bookingHTML = function() {
   var checkin = checkinDate.toDateString();
   var checkout = checkoutDate.toDateString();
   return (`<p>
-    Check in on ${checkin}, check out on ${checkout} - <a href="#" booking="${this.id}" class="booking_link">see details</a>
+    Check in on ${checkin}, check out on ${checkout} - <a href="${this.id}" class="booking_link">see details</a>
     </p>
     `);
 };
