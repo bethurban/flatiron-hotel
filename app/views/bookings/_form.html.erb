@@ -14,11 +14,16 @@
   <% end %>
 <% end %>
 
+<div id="bookingResult">
+   <h2 id="bookingCheckin"></h2>
+   <p id="bookingCheckout"></p>
+ </div>
+
 <script type="text/javascript" charset="utf-8">
   $(function () {
     $('form').submit(function(event) {
       event.preventDefault();
-      
+
       var url = window.location.href.split("/");
       var id = url[url.length - 2];
 
@@ -27,6 +32,9 @@
 
       booking.done(function(data) {
         console.log("here's the data: ", data);
+        var booking = data;
+        $("#bookingCheckin").text(booking["checkin"]);
+        $("#bookingCheckout").text(booking["checkout"]);
       });
     });
   });
