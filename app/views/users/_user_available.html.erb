@@ -7,3 +7,12 @@
   <%= text_field_tag :'booking[group_size]' %><br>
   <%= submit_tag "See available rooms" %>
 <% end %>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+      event.preventDefault();
+      alert("Grabbed the submit button");
+    });
+  });
+</script>

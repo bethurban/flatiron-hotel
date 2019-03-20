@@ -1,9 +1,1 @@
-1. Find show page to render via JSON - booking? https://localhost:3000/users/1/bookings/4
-
-2. Set up show route to render JSON when requested
-
-3. Make bookings.js and set up AJAX request and data parsers to return correctly
-
-4. Set up show view to take in JSON data
-
-6. Form: Reservation form from user home page?
+1. Form: Reservation form from user home page?
