@@ -11,8 +11,10 @@ function listenForBookingsClick() {
 };
 
 function getBookings() {
+  var url = window.location.href.split("/");
+  var id = url[url.length - 1];
   $.ajax({
-    url: 'https://localhost:3000/users/1/bookings',
+    url: `https://localhost:3000/users/${id}/bookings`,
     method: 'get',
     dataType: 'json'
   }).done(function(data) {
