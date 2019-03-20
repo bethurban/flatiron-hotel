@@ -38,8 +38,14 @@ class Booking {
 };
 
 Booking.prototype.bookingHTML = function() {
+  var checkinParts = this.checkin.split('-');
+  var checkoutParts = this.checkout.split('-');
+  var checkinDate = new Date(checkinParts[0], checkinParts[1] - 1, checkinParts[2]);
+  var checkoutDate = new Date(checkoutParts[0], checkoutParts[1] - 1, checkoutParts[2]);
+  var checkin = checkinDate.toDateString();
+  var checkout = checkoutDate.toDateString();
   return (`<p>
-    Check in: ${this.checkin}, check out: ${this.checkout}, group size: ${this.group_size}
+    Check in on ${checkin}, check out on ${checkout}. Group size: ${this.group_size}
     </p>
     `);
 };
