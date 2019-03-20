@@ -35,6 +35,10 @@ class BookingsController < ApplicationController
       @user = User.find_by_id(@booking.user_id)
       @room = Room.find_by_id(@booking.room_id)
       @room_img = "room_#{@room.room_number}.jpg"
+      respond_to do |f|
+        f.html {render :show}
+        f.json {render json: @booking}
+      end
     else
       redirect_to root_path
     end
