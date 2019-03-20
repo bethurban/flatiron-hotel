@@ -23,8 +23,6 @@ class BookingsController < ApplicationController
     current_user
     if @booking.save
       render json: @booking, status: 201
-      # flash[:notice] = "Your booking has been confirmed!"
-      # redirect_to user_booking_path(@user, @booking)
     else
       redirect_to user_available_path(@user)
     end

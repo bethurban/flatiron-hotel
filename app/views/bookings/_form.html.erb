@@ -14,10 +14,7 @@
   <% end %>
 <% end %>
 
-<div id="bookingResult">
-   <h2 id="bookingCheckin"></h2>
-   <p id="bookingCheckout"></p>
- </div>
+<div id="bookingResult"></div>
 
 <script type="text/javascript" charset="utf-8">
   $(function () {
@@ -33,8 +30,19 @@
       booking.done(function(data) {
         console.log("here's the data: ", data);
         var booking = data;
-        $("#bookingCheckin").text(booking["checkin"]);
-        $("#bookingCheckout").text(booking["checkout"]);
+
+        var checkinParts = booking["checkin"].split('-');
+        var checkoutParts = booking["checkout"].split('-');
+        var checkinDate = new Date(checkinParts[0], checkinParts[1] - 1, checkinParts[2]);
+        var checkoutDate = new Date(checkoutParts[0], checkoutParts[1] - 1, checkoutParts[2]);
+        var checkin = checkinDate.toDateString();
+        var checkout = checkoutDate.toDateString();
+
+        document.getElementById('bookingResult').innerHTML = `<h2>Booking Confirmed</h2>
+        <p>Check in: ${checkin}</p>
+        <p>Check out: ${checkout}</p>
+        <p>Room #${booking.room.room_number}</p>`
+
         alert("Your booking has been confirmed.");
       });
     });
