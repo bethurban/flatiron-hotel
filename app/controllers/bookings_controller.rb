@@ -58,6 +58,10 @@ class BookingsController < ApplicationController
       else
         user_bookings = @user.bookings
         @bookings = user_bookings.order(:checkin)
+        respond_to do |f|
+          f.html {render :index}
+          f.json {render json: @bookings}
+        end
       end
     else
       redirect_to root_path
