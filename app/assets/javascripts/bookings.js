@@ -17,6 +17,13 @@ function listenForBookingClick() {
   })
 }
 
+function listenForDetailsClick() {
+  $('.details_link').on('click', function(event) {
+    event.preventDefault();
+    getDetails(this.href);
+  })
+}
+
 function getBookings() {
   var url = window.location.href.split("/");
   var id = url[url.length - 1];
@@ -50,8 +57,16 @@ function getBooking(booking) {
     let myBooking = new Booking(data);
     let myBookingHTML = myBooking.bookingDetailsHTML();
     document.getElementById(`booking_details_${bookingId}`).innerHTML += myBookingHTML;
+    listenForDetailsClick();
   });
 };
+
+function getDetails(room) {
+  console.log("This room's data: ", room);
+  var roomURL = room.split("/");
+  var roomId = roomURL[roomURL.length - 1];
+  
+}
 
 class Booking {
   constructor(obj) {
@@ -59,7 +74,8 @@ class Booking {
     this.group_size = obj.group_size;
     this.checkin = obj.checkin;
     this.checkout = obj.checkout;
-    this.room_number = obj.room.room_number
+    this.room_number = obj.room.room_number;
+    this.room_id = obj.room.id;
   };
 };
 
@@ -79,7 +95,7 @@ Booking.prototype.bookingHTML = function() {
 
 Booking.prototype.bookingDetailsHTML = function() {
   return (`<ul>
-    <li>Room #${this.room_number}</li>
+    <li>Room #${this.room_number} - <a href="${this.room_id}" class="details_link">see photo</a></li>
     <li>Group size: ${this.group_size}</li>
     </ul>
     `);
