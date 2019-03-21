@@ -70,6 +70,7 @@ function getDetails(room) {
     dataType: 'json'
   }).done(function(data) {
     console.log("This room's data: ", data);
+    document.getElementById(`room_details_${data.id}`).innerHTML += `<img src="${ data.image.image.thumb.url }">`
   });
 };
 
@@ -101,6 +102,7 @@ Booking.prototype.bookingHTML = function() {
 Booking.prototype.bookingDetailsHTML = function() {
   return (`<ul>
     <li>Room #${this.room_number} - <a href="${this.room_id}" class="details_link">see photo</a></li>
+    <div id="room_details_${this.room_id}"></div>
     <li>Group size: ${this.group_size}</li>
     </ul>
     `);
