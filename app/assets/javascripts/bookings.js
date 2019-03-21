@@ -62,11 +62,16 @@ function getBooking(booking) {
 };
 
 function getDetails(room) {
-  console.log("This room's data: ", room);
   var roomURL = room.split("/");
   var roomId = roomURL[roomURL.length - 1];
-  
-}
+  $.ajax({
+    url: `https://localhost:3000/rooms/${roomId}`,
+    method: 'get',
+    dataType: 'json'
+  }).done(function(data) {
+    console.log("This room's data: ", data);
+  });
+};
 
 class Booking {
   constructor(obj) {
