@@ -9,10 +9,13 @@ add new rooms to the hotel.
 This app is meant to demonstrate the Ruby on Rails framework working with
 ActiveRecord, CSS, and various gems.
 
+The "javascript" branch of this repo expands on the project, adding dynamic
+features using JavaScript and a JSON API.
+
 ## Installation
 
-To use this app, clone, run `bundle install`, run `rake db:migrate`, then run
-`thin start --ssl`.
+To use this app, clone, run `bundle install`, run `rake db:migrate.` If dummy
+data is requested, run `rake db:seed`. Finally, run `thin start --ssl`.
 
 Navigate to https://localhost:3000/ to start the app.
 
