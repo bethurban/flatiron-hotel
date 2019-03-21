@@ -43,6 +43,10 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find_by_id(params[:id])
+    respond_to do |f|
+      f.html {render :show}
+      f.json {render json: @room}
+    end
   end
 
   def cost
