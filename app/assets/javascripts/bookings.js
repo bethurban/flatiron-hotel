@@ -24,6 +24,13 @@ function listenForDetailsClick() {
   })
 }
 
+function listenForSortBookingsClick() {
+  $('.sort_bookings').on('click', function(event) {
+    event.preventDefault();
+    sortBookings();
+  })
+}
+
 function getBookings() {
   var url = window.location.href.split("/");
   var id = url[url.length - 1];
@@ -34,11 +41,13 @@ function getBookings() {
   }).done(function(data) {
 
     console.log("Data: ", data);
+    document.getElementById('bookings_div').innerHTML = `<a href="#" class="sort_bookings">Sort bookings</a>`;
     data.forEach(function(booking) {
       let myBooking = new Booking(booking);
       let myBookingHTML = myBooking.bookingHTML();
       document.getElementById('bookings_div').innerHTML += myBookingHTML;
     });
+    listenForSortBookingsClick();
     listenForBookingClick();
   });
 };
@@ -73,6 +82,26 @@ function getDetails(room) {
     document.getElementById(`room_details_${data.id}`).innerHTML += `<img src="${ data.image.image.thumb.url }">`
   });
 };
+
+function sortBookings() {
+  var url = window.location.href.split("/");
+  var id = url[url.length - 1];
+  $.ajax({
+    url: `https://localhost:3000/users/${id}/bookings`,
+    method: 'get',
+    dataType: 'json'
+  }).done(function(data) {
+
+    console.log("Bookings: ", data);
+    data.sort((a, b) => new Date(a.checkin) - new Date(b.checkin));
+    document.getElementById('bookings_div').innerHTML = ""
+    data.forEach(function(booking) {
+      let myBooking = new Booking(booking);
+      let myBookingHTML = myBooking.bookingHTML();
+      document.getElementById('bookings_div').innerHTML += myBookingHTML;
+    });
+  });
+}
 
 class Booking {
   constructor(obj) {
