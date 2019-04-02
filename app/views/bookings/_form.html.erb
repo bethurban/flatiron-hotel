@@ -13,3 +13,38 @@
     <%= submit_tag "Book this room" %>
   <% end %>
 <% end %>
+
+<div id="bookingResult"></div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(event) {
+      event.preventDefault();
+
+      var url = window.location.href.split("/");
+      var id = url[url.length - 2];
+
+      var values = $(this).serialize();
+      var booking = $.post(`/users/${id}/bookings`, values);
+
+      booking.done(function(data) {
+        console.log("here's the data: ", data);
+        var booking = data;
+
+        var checkinParts = booking["checkin"].split('-');
+        var checkoutParts = booking["checkout"].split('-');
+        var checkinDate = new Date(checkinParts[0], checkinParts[1] - 1, checkinParts[2]);
+        var checkoutDate = new Date(checkoutParts[0], checkoutParts[1] - 1, checkoutParts[2]);
+        var checkin = checkinDate.toDateString();
+        var checkout = checkoutDate.toDateString();
+
+        document.getElementById('bookingResult').innerHTML = `<h2>Booking Confirmed</h2>
+        <p>Check in: ${checkin}</p>
+        <p>Check out: ${checkout}</p>
+        <p>Room #${booking.room.room_number}</p>`
+
+        alert("Your booking has been confirmed.");
+      });
+    });
+  });
+</script>

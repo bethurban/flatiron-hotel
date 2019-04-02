@@ -22,8 +22,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     current_user
     if @booking.save
-      flash[:notice] = "Your booking has been confirmed!"
-      redirect_to user_booking_path(@user, @booking)
+      render json: @booking, status: 201
     else
       redirect_to user_available_path(@user)
     end
@@ -35,6 +34,10 @@ class BookingsController < ApplicationController
       @user = User.find_by_id(@booking.user_id)
       @room = Room.find_by_id(@booking.room_id)
       @room_img = "room_#{@room.room_number}.jpg"
+      respond_to do |f|
+        f.html {render :show}
+        f.json {render json: @booking}
+      end
     else
       redirect_to root_path
     end
@@ -56,8 +59,12 @@ class BookingsController < ApplicationController
       if @user.admin?
         @bookings = Booking.all.order(:checkin)
       else
-        user_bookings = @user.bookings
-        @bookings = user_bookings.order(:checkin)
+        @bookings = @user.bookings
+        # @bookings = user_bookings.order(:checkin)
+        respond_to do |f|
+          f.html {render :index}
+          f.json {render json: @bookings}
+        end
       end
     else
       redirect_to root_path
