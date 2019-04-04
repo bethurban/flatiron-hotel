@@ -1,5 +1,25 @@
 {
   "name": "flatiron-hotel",
-  "private": true,
-  "dependencies": {}
+  "version": "1.0.0",
+  "description": "A mock hotel reservation site.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bethurban/flatiron-hotel.git"
+  },
+  "author": "Elizabeth Urban",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bethurban/flatiron-hotel/issues"
+  },
+  "homepage": "https://github.com/bethurban/flatiron-hotel#readme"
 }
