@@ -42,7 +42,7 @@ gem 'dotenv-rails'
 gem 'thin'
 gem 'bootstrap-sass', '>= 3.4.1'
 gem 'carrierwave', '~> 0.10.0'
-gem 'mini_magick', '~> 4.3'
+gem "mini_magick", ">= 4.9.4"
 gem 'active_model_serializers'
 gem 'jquery-rails'
 
